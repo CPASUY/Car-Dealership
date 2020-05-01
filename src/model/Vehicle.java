@@ -1,18 +1,22 @@
+package model;
 public abstract class Vehicle{
+	//Constants
+	public static final String VEHICLE_NEW="New";
+	public static final String VEHICLE_USED="Used";
 	//Atributes
 	private double total_price;
 	private double base_price;
-	private String car_brand;
+	private String brand;
 	private String model;
 	private double mileage;
 	private double cylinder_capacity;
 	private String type;
 	private String lisence_plate;
 	//Methods
-	public Vehicle(double total_price, double base_price, String car_brand, String model, double mileage, double cylinder_capacity, String type, String lisence_plate){
-		this.total_price=total_price;
+	public Vehicle(double base_price, String brand, String model, double mileage, double cylinder_capacity, String type, String lisence_plate){
+		this.total_price=0;
 		this.base_price=base_price;
-		this.car_brand=car_brand;
+		this.brand=brand;
 		this.model=model;
 		this.mileage=mileage;
 		this.cylinder_capacity=cylinder_capacity;
@@ -33,10 +37,10 @@ public abstract class Vehicle{
 	}
 
 	public String getCar_brand(){
-		return car_brand;
+		return brand;
 	}
-	public void setCar_brand(String car_brand){
-		this.car_brand=car_brand;
+	public void setCar_brand(String brand){
+		this.brand=brand;
 	}
 	public String getModel() {
 		return model;

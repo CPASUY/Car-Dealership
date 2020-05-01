@@ -1,11 +1,15 @@
+package model;
 public class Car extends Vehicle {
+	//Constants
+	public static final String CAR_SEDAN="Sedan";
+	public static final String CAR_VAN="Van";
 	//Atributes
 	private String car_type;
 	private int door_number;
 	private boolean polarized;
 	//Methods
-	public Car(double total_price, double base_price, String car_brand, String model, double mileage, double cylinder_capacity, String type, String lisence_plate,String car_type, int door_number, boolean polarized) {
-		super(total_price,base_price,car_brand,model,mileage,cylinder_capacity,type,lisence_plate);
+	public Car(double base_price, String brand, String model, double mileage, double cylinder_capacity, String type, String lisence_plate,String car_type, int door_number, boolean polarized) {
+		super(base_price,brand,model,mileage,cylinder_capacity,type,lisence_plate);
 		this.car_type=type;
 		this.door_number=door_number;
 		this.polarized=polarized;

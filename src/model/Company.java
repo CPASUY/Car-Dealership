@@ -1,4 +1,5 @@
 package model;
+import java.util.ArrayList;
 public class Company {
 	//Constants
 	public static final int SELLERS=10;
@@ -8,6 +9,7 @@ public class Company {
 	private double total_earnings;
 	private double sales_number;
 	private Advisor[] sellers;
+	private ArrayList<Vehicle>vehicles;
 	//Methods
 	public Company(String name, String nit) {
 		this.name=name;
@@ -15,6 +17,7 @@ public class Company {
 		this.total_earnings=0;
 		this.sales_number=0;
 		this.sellers = new Advisor[SELLERS];
+		this.vehicles=new ArrayList<Vehicle>();
 	}
 	public Advisor searchAdvisor(String identification){
 	Advisor searchAdvisor=null;
@@ -27,7 +30,6 @@ public class Company {
 			}
 		}
 	}
-
 		return searchAdvisor;
     }
     public String addAdvisor(String name, String last_name, String identification)
@@ -103,6 +105,38 @@ public class Company {
 	    }
         return message;
 	}
+	public String addVehicle(double base_price,String brand,String model,double mileage,double cylinder_capacity,String type,String lisence_plate,String car_type,int door_number,boolean polarized){
+		boolean find=false;
+		String message="";
+		for(int s=0;s<vehicles.size()&&find==false;s++){
+				Car vehicles=new Car(base_price,brand,model,mileage,cylinder_capacity,type,lisence_plate,car_type,door_number,polarized);
+				this.vehicles.add(vehicles);
+				find=true;
+		}
+		if(find==true){
+			message="The car has been successfully registered";
+		}
+		else{
+			message="The car has not been registered";
+		}
+		return message;
+	}
+	public String addVehicle(double base_price,String brand,String model,double mileage,double cylinder_capacity,String type,String lisence_plate,String moto_type,double gasoline_capacity,double consume_gaso){
+		boolean find=false;
+		String message="";
+		for(int s=0;s<vehicles.size()&&find==false;s++){
+				Motocycle vehicles=new Motocycle(base_price,brand,model,mileage,cylinder_capacity,type,lisence_plate,moto_type, gasoline_capacity,consume_gaso);
+				this.vehicles.add(vehicles);
+				find=true;
+		}
+		if(find==true){
+			message="The car has been successfully registered";
+		}
+		else{
+			message="The car has not been registered";
+		}
+		return message;
+	}
 	public String getName() {
 		return name;
 	}
@@ -127,5 +161,7 @@ public class Company {
 	public void setSales_number(double sales_number) {
 		this.sales_number = sales_number;
 	}
-
+	public ArrayList<Vehicle> getVehicles(){
+		return vehicles;
+	}
 }
