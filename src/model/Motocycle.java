@@ -16,6 +16,9 @@ public class Motocycle extends Vehicle {
 		this.gasoline_capacity=gasoline_capacity;
 		this.consume_gaso=consume_gaso;
 	}
+	public void gasolineConsume(){
+
+	}
 	public String getMoto_Type(){
 		return moto_type;
 	}

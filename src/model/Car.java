@@ -1,5 +1,5 @@
 package model;
-public class Car extends Vehicle {
+public abstract class Car extends Vehicle {
 	//Constants
 	public static final String CAR_SEDAN="Sedan";
 	public static final String CAR_VAN="Van";
@@ -10,7 +10,7 @@ public class Car extends Vehicle {
 	//Methods
 	public Car(double base_price, String brand, String model, double mileage, double cylinder_capacity, String type, String lisence_plate,String car_type, int door_number, boolean polarized) {
 		super(base_price,brand,model,mileage,cylinder_capacity,type,lisence_plate);
-		this.car_type=type;
+		this.car_type=car_type;
 		this.door_number=door_number;
 		this.polarized=polarized;
 	}
@@ -26,7 +26,6 @@ public class Car extends Vehicle {
 	public void setDoor_number(int door_number){
 		this.door_number=door_number;
 	}
-
 	public boolean getPolarized(){
 		return polarized;
 	}

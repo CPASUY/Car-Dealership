@@ -1,6 +1,7 @@
 package ui;
 import java.util.Scanner;
 import java.io.IOException;
+import java.time.LocalDate;
 import model.*;
 public class Main{
 	//Atributes
@@ -33,7 +34,7 @@ public class Main{
 						objMain.enterClient();
 						break;
 					case 3:
-						objMain.enterVehicles();
+						
 						break;
 					case 4:
 						
@@ -91,61 +92,13 @@ public class Main{
 			String message=mainCompany.addClient(name.toUpperCase(),last_name.toUpperCase(),identification,phone_number,mail);
 			System.out.println(message);
 		}
-	public void enterVehicles(){
-		Scanner lector = new Scanner (System.in);
-		String message="";
-		String moto_type="";
-		String car_type="";
-		String type="";
-		String lisence_plate;
-		boolean polarized;
-		double mileage;
-			System.out.println("Enter the vehicle type you want to register. 1 for car, 2 for motorcycle");
-			int option=lector.nextInt();
-			if(option==1){
-				System.out.println("Type the base price");
-				double base_price=lector.nextDouble();
-				System.out.println("Type the brand");
-				String brand=lector.nextLine();
-				System.out.println("Type the model");
-				String model=lector.nextLine();
-				System.out.println("Type the cylinder capacity");
-				double cylinder_capacity=lector.nextDouble();
-				System.out.println("If the car is new digit 1, if used digit 2");
-				int opt=lector.nextInt();
-				if(opt==1){
-					type=Vehicle.VEHICLE_NEW;
-					lisence_plate="";
-					mileage=0;
-				}
-				else{
-					type=Vehicle.VEHICLE_USED;
-					System.out.println("Type the lisence plate");
-					lisence_plate=lector.nextLine();
-					System.out.println("Type the mileage");
-					mileage=lector.nextDouble();
-				}
-				System.out.println("What is the type of car.Type 1 sedan or 2 for a van");
-				int op=lector.nextInt();
-				if(op==1){
-					car_type=Car.CAR_SEDAN;
-				}
-				else{
-					car_type=Car.CAR_VAN;
-				}
-				System.out.println("Type the number of doors");
-				int door_number=lector.nextInt();
-				System.out.println("Type 1 if the car is polarized,2 if it is not");
-				int opti=lector.nextInt();
-				if(opti==1){
-					polarized=true;
-				}
-				else{
-					polarized=false;
-				}
-		 		message=mainCompany.addVehicle(base_price,brand,model,mileage,cylinder_capacity,type,lisence_plate,car_type,door_number,polarized);
-			}
-			else{
+	public void enterVehiclesMotocycle(){
+			Scanner lector = new Scanner (System.in);
+			String message="";
+			String moto_type="";
+			String type="";
+			String lisence_plate;
+			double mileage;
 				System.out.println("Type the base price");
 				double base_price=lector.nextDouble();
 				System.out.println("Type the brand");
@@ -187,7 +140,210 @@ public class Main{
 				System.out.println("Type the gasoline consume");
 				double consume_gaso=lector.nextDouble();
 				message=mainCompany.addVehicle(base_price,brand,model,mileage,cylinder_capacity,type,lisence_plate,moto_type,gasoline_capacity,consume_gaso);
-			}
-			System.out.println(message);
+				System.out.println(message);
+	}
+	public void enterVehicleGasoline(){
+			Scanner lector = new Scanner (System.in);
+			String message="";
+			String car_type="";
+			String type="";
+			String type_gasoline="";
+			String lisence_plate="";
+			boolean polarized;
+			double mileage=0;;
+				System.out.println("Type the base price");
+				double base_price=lector.nextDouble();
+				System.out.println("Type the brand");
+				String brand=lector.nextLine();
+				System.out.println("Type the model");
+				String model=lector.nextLine();
+				System.out.println("Type the cylinder capacity");
+				double cylinder_capacity=lector.nextDouble();
+				System.out.println("If the car is new digit 1, if used digit 2");
+				int opt=lector.nextInt();
+				if(opt==1){
+					type=Vehicle.VEHICLE_NEW;
+				}
+				else{
+					type=Vehicle.VEHICLE_USED;
+					System.out.println("Type the lisence plate");
+					lisence_plate=lector.nextLine();
+					System.out.println("Type the mileage");
+					mileage=lector.nextDouble();
+				}
+				System.out.println("What is the type of car.Type 1 sedan or 2 for a van");
+				int op=lector.nextInt();
+				if(op==1){
+					car_type=Car.CAR_SEDAN;
+				}
+				else{
+					car_type=Car.CAR_VAN;
+				}
+				System.out.println("Type the number of doors");
+				int door_number=lector.nextInt();
+				System.out.println("Type 1 if the car is polarized,2 if it is not");
+				int opti=lector.nextInt();
+				if(opti==1){
+					polarized=true;
+				}
+				else{
+					polarized=false;
+				}
+				System.out.println("Type the gasoline capacity");
+				double cap_gasoline=lector.nextDouble();
+				System.out.println("What is the type of gasoline.Type 1 extra, 2 for corrient or 3 for diesel");
+				int gaso=lector.nextInt();
+				if(gaso==1){
+					type_gasoline=Gasoline.EXTRA;
+				}
+				else if(gaso==2){
+					type_gasoline=Gasoline.CORRIENT;
+				}
+				else{
+					type_gasoline=Gasoline.DIESEL;
+				}
+				System.out.println("Type the gasoline consume");
+				double gaso_consume=lector.nextDouble();
+		 		message=mainCompany.addVehicle(base_price,brand,model,mileage,cylinder_capacity,type,lisence_plate,car_type,door_number,polarized,cap_gasoline,type_gasoline,gaso_consume);
+	}
+	public void enterVehicleElectrical(){
+			Scanner lector = new Scanner (System.in);
+			String message="";
+			String car_type="";
+			String type="";
+			String charger_type="";
+			String lisence_plate="";
+			boolean polarized;
+			double mileage=0;
+				System.out.println("Type the base price");
+				double base_price=lector.nextDouble();
+				System.out.println("Type the brand");
+				String brand=lector.nextLine();
+				System.out.println("Type the model");
+				String model=lector.nextLine();
+				System.out.println("Type the cylinder capacity");
+				double cylinder_capacity=lector.nextDouble();
+				System.out.println("If the car is new digit 1, if used digit 2");
+				int opt=lector.nextInt();
+				if(opt==1){
+					type=Vehicle.VEHICLE_NEW;
+				}
+				else{
+					type=Vehicle.VEHICLE_USED;
+					System.out.println("Type the lisence plate");
+					lisence_plate=lector.nextLine();
+					System.out.println("Type the mileage");
+					mileage=lector.nextDouble();
+				}
+				System.out.println("What is the type of car.Type 1 sedan or 2 for a van");
+				int op=lector.nextInt();
+				if(op==1){
+					car_type=Car.CAR_SEDAN;
+				}
+				else{
+					car_type=Car.CAR_VAN;
+				}
+				System.out.println("Type the number of doors");
+				int door_number=lector.nextInt();
+				System.out.println("Type 1 if the car is polarized,2 if it is not");
+				int opti=lector.nextInt();
+				if(opti==1){
+					polarized=true;
+				}
+				else{
+					polarized=false;
+				}
+				System.out.println("What is the type of charger.Type 1 normal, or 2 for quick");
+				int charg=lector.nextInt();
+				if(charg==1){
+					charger_type=Electrical.NORMAL;
+				}
+				else{
+					charger_type=Electrical.QUICK;
+				}
+				System.out.println("Type the duration of the charger");
+				double duration=lector.nextDouble();
+				System.out.println("Type the battery consume");
+				double consume_battery=lector.nextDouble();
+		 		message=mainCompany.addVehicle(base_price,brand,model,mileage,cylinder_capacity,type,lisence_plate,car_type,door_number,polarized,charger_type,duration,consume_battery);
+	}
+	public void enterVehicleHybrid(){
+			Scanner lector = new Scanner (System.in);
+			String message="";
+			String car_type="";
+			String type="";
+			String type_gasoline="";
+			String charger_type="";
+			String lisence_plate="";
+			boolean polarized;
+			double mileage=0;
+				System.out.println("Type the base price");
+				double base_price=lector.nextDouble();
+				System.out.println("Type the brand");
+				String brand=lector.nextLine();
+				System.out.println("Type the model");
+				String model=lector.nextLine();
+				System.out.println("Type the cylinder capacity");
+				double cylinder_capacity=lector.nextDouble();
+				System.out.println("If the car is new digit 1, if used digit 2");
+				int opt=lector.nextInt();
+				if(opt==1){
+					type=Vehicle.VEHICLE_NEW;
+				}
+				else{
+					type=Vehicle.VEHICLE_USED;
+					System.out.println("Type the lisence plate");
+					lisence_plate=lector.nextLine();
+					System.out.println("Type the mileage");
+					mileage=lector.nextDouble();
+				}
+				System.out.println("What is the type of car.Type 1 sedan or 2 for a van");
+				int op=lector.nextInt();
+				if(op==1){
+					car_type=Car.CAR_SEDAN;
+				}
+				else{
+					car_type=Car.CAR_VAN;
+				}
+				System.out.println("Type the number of doors");
+				int door_number=lector.nextInt();
+				System.out.println("Type 1 if the car is polarized,2 if it is not");
+				int opti=lector.nextInt();
+				if(opti==1){
+					polarized=true;
+				}
+				else{
+					polarized=false;
+				}
+				System.out.println("Type the gasoline capacity");
+				double cap_gasoline=lector.nextDouble();
+				System.out.println("What is the type of gasoline.Type 1 extra, 2 for corrient or 3 for diesel");
+				int gaso=lector.nextInt();
+				if(gaso==1){
+					type_gasoline=Gasoline.EXTRA;
+				}
+				else if(gaso==2){
+					type_gasoline=Gasoline.CORRIENT;
+				}
+				else{
+					type_gasoline=Gasoline.DIESEL;
+				}
+				System.out.println("Type the gasoline consume");
+				double gaso_consume=lector.nextDouble();
+				System.out.println("What is the type of charger.Type 1 normal, or 2 for quick");
+				int charg=lector.nextInt();
+				if(charg==1){
+					charger_type=Electrical.NORMAL;
+				}
+				else{
+					charger_type=Electrical.QUICK;
+				}
+				System.out.println("Type the duration of the battery");
+				double duration=lector.nextDouble();
+				System.out.println("Type the consume battery");
+				double consume_battery=lector.nextDouble();
+		 		message=mainCompany.addVehicle(base_price,brand,model,mileage,cylinder_capacity,type,lisence_plate,car_type,door_number,polarized,cap_gasoline,type_gasoline,gaso_consume,charger_type,duration,consume_battery);
 	}
 }	
+
+
