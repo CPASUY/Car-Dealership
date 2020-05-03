@@ -118,7 +118,7 @@ public class Company {
 	}
 		return searchVehicle;
     }
-	public String addVehicle(double base_price,String brand,String model,double mileage,double cylinder_capacity,String type,String lisence_plate,String moto_type,double gasoline_capacity,double consume_gaso){
+	public String addVehicle(double base_price,String brand,String model,double mileage,double cylinder,String type,String lisence_plate,String moto_type,double cap_tank){
 		boolean find=false;
 		boolean add=true;
 		if(lisence_plate.equals(Vehicle.VEHICLE_USED)){
@@ -128,7 +128,7 @@ public class Company {
 		if(add==false || lisence_plate.equals("")){
 			for(int s=0;s<vehicles.size()&&find==false;s++){
 				if(vehicles.get(s)==null){
-					Motocycle vehicles=new Motocycle(base_price,brand,model,mileage,cylinder_capacity,type,lisence_plate,moto_type,gasoline_capacity,consume_gaso);
+					Motocycle vehicles=new Motocycle(base_price,brand,model,mileage,cylinder,type,lisence_plate,moto_type,cap_tank);
 					this.vehicles.add(vehicles);
 					find=true;
 				}
@@ -142,7 +142,7 @@ public class Company {
 		}
 		return message;
 	}
-	public String addVehicle(double base_price,String brand,String model,double mileage,double cylinder_capacity,String type,String lisence_plate,String car_type,int door_number,boolean polarized,double cap_gasoline,String type_gasoline,double gaso_consume){
+	public String addVehicle(double base_price,String brand,String model,double mileage,double cylinder,String type,String lisence_plate,String car_type,int door_number,boolean polarized,double cap_tank,String type_gasoline){
 		boolean find=false;
 		boolean add=true;
 		String message="";
@@ -152,7 +152,7 @@ public class Company {
 		if(add==false || lisence_plate.equals("")){
 			for(int s=0;s<vehicles.size()&&find==false;s++){
 				if(vehicles.get(s)==null){
-					Gasoline vehicles=new Gasoline(base_price,brand,model,mileage,cylinder_capacity,type,lisence_plate,car_type,door_number,polarized,cap_gasoline,type_gasoline,gaso_consume);
+					Gasoline vehicles=new Gasoline(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline);
 					this.vehicles.add(vehicles);
 					find=true;
 				}
@@ -166,7 +166,7 @@ public class Company {
 		}
 		return message;
 	}
-	public String addVehicle(double base_price,String brand,String model,double mileage,double cylinder_capacity,String type,String lisence_plate,String car_type,int door_number,boolean polarized,String charger_type,double duration,double consume_battery){
+	public String addVehicle(double base_price,String brand,String model,double mileage,double cylinder,String type,String lisence_plate,String car_type,int door_number,boolean polarized,String charger_type,double duration){
 		boolean find=false;
 		boolean add=true;
 		if(lisence_plate.equals(Vehicle.VEHICLE_USED)){
@@ -176,7 +176,7 @@ public class Company {
 		if(add==false || lisence_plate.equals("")){
 			for(int s=0;s<vehicles.size()&&find==false;s++){
 				if(vehicles.get(s)==null){
-					Electrical vehicles=new Electrical(base_price,brand,model,mileage,cylinder_capacity,type,lisence_plate,car_type,door_number,polarized,charger_type,duration,consume_battery);
+					Electrical vehicles=new Electrical(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,charger_type,duration);
 					this.vehicles.add(vehicles);
 					find=true;
 				}
@@ -190,7 +190,7 @@ public class Company {
 		}
 		return message;
 	}
-	public String addVehicle(double base_price,String brand,String model,double mileage,double cylinder_capacity,String type,String lisence_plate,String car_type,int door_number,boolean polarized,double cap_gasoline,String type_gasoline,double gaso_consume,String charger_type,double duration,double consume_battery){
+	public String addVehicle(double base_price,String brand,String model,double mileage,double cylinder,String type,String lisence_plate,String car_type,int door_number,boolean polarized,double cap_tank,String type_gasoline,String charger_type,double duration){
 		boolean find=false;
 		boolean add=true;
 		if(lisence_plate.equals(Vehicle.VEHICLE_USED)){
@@ -200,7 +200,7 @@ public class Company {
 		if(add==false || lisence_plate.equals("")){
 			for(int s=0;s<vehicles.size()&&find==false;s++){
 				if(vehicles.get(s)==null){
-					Hybrid vehicles=new Hybrid(base_price,brand,model,mileage,cylinder_capacity,type,lisence_plate,car_type,door_number,polarized,cap_gasoline,type_gasoline,gaso_consume,charger_type,duration,consume_battery);
+					Hybrid vehicles=new Hybrid(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,charger_type,duration);
 					this.vehicles.add(vehicles);
 					find=true;
 				}

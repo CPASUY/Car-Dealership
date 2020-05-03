@@ -105,8 +105,8 @@ public class Main{
 				String brand=lector.nextLine();
 				System.out.println("Type the model");
 				String model=lector.nextLine();
-				System.out.println("Type the cylinder capacity");
-				double cylinder_capacity=lector.nextDouble();
+				System.out.println("Type the cylinder");
+				double cylinder=lector.nextDouble();
 				System.out.println("If the motorcycle is new digit 1, if used digit 2");
 				int choice=lector.nextInt();
 				if(choice==1){
@@ -136,10 +136,8 @@ public class Main{
 					moto_type=Motocycle.MOTO_CROSS;
 				}
 				System.out.println("Type the gasoline capacity");
-				double gasoline_capacity=lector.nextDouble();
-				System.out.println("Type the gasoline consume");
-				double consume_gaso=lector.nextDouble();
-				message=mainCompany.addVehicle(base_price,brand,model,mileage,cylinder_capacity,type,lisence_plate,moto_type,gasoline_capacity,consume_gaso);
+				double cap_tank=lector.nextDouble();
+				message=mainCompany.addVehicle(base_price,brand,model,mileage,cylinder,type,lisence_plate,moto_type,cap_tank);
 				System.out.println(message);
 	}
 	public void enterVehicleGasoline(){
@@ -157,8 +155,8 @@ public class Main{
 				String brand=lector.nextLine();
 				System.out.println("Type the model");
 				String model=lector.nextLine();
-				System.out.println("Type the cylinder capacity");
-				double cylinder_capacity=lector.nextDouble();
+				System.out.println("Type the cylinder");
+				double cylinder=lector.nextDouble();
 				System.out.println("If the car is new digit 1, if used digit 2");
 				int opt=lector.nextInt();
 				if(opt==1){
@@ -189,8 +187,8 @@ public class Main{
 				else{
 					polarized=false;
 				}
-				System.out.println("Type the gasoline capacity");
-				double cap_gasoline=lector.nextDouble();
+				System.out.println("Type the tank capacity");
+				double cap_tank=lector.nextDouble();
 				System.out.println("What is the type of gasoline.Type 1 extra, 2 for corrient or 3 for diesel");
 				int gaso=lector.nextInt();
 				if(gaso==1){
@@ -202,9 +200,7 @@ public class Main{
 				else{
 					type_gasoline=Gasoline.DIESEL;
 				}
-				System.out.println("Type the gasoline consume");
-				double gaso_consume=lector.nextDouble();
-		 		message=mainCompany.addVehicle(base_price,brand,model,mileage,cylinder_capacity,type,lisence_plate,car_type,door_number,polarized,cap_gasoline,type_gasoline,gaso_consume);
+		 		message=mainCompany.addVehicle(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline);
 	}
 	public void enterVehicleElectrical(){
 			Scanner lector = new Scanner (System.in);
@@ -221,8 +217,8 @@ public class Main{
 				String brand=lector.nextLine();
 				System.out.println("Type the model");
 				String model=lector.nextLine();
-				System.out.println("Type the cylinder capacity");
-				double cylinder_capacity=lector.nextDouble();
+				System.out.println("Type the cylinder");
+				double cylinder=lector.nextDouble();
 				System.out.println("If the car is new digit 1, if used digit 2");
 				int opt=lector.nextInt();
 				if(opt==1){
@@ -263,9 +259,7 @@ public class Main{
 				}
 				System.out.println("Type the duration of the charger");
 				double duration=lector.nextDouble();
-				System.out.println("Type the battery consume");
-				double consume_battery=lector.nextDouble();
-		 		message=mainCompany.addVehicle(base_price,brand,model,mileage,cylinder_capacity,type,lisence_plate,car_type,door_number,polarized,charger_type,duration,consume_battery);
+		 		message=mainCompany.addVehicle(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,charger_type,duration);
 	}
 	public void enterVehicleHybrid(){
 			Scanner lector = new Scanner (System.in);
@@ -283,8 +277,8 @@ public class Main{
 				String brand=lector.nextLine();
 				System.out.println("Type the model");
 				String model=lector.nextLine();
-				System.out.println("Type the cylinder capacity");
-				double cylinder_capacity=lector.nextDouble();
+				System.out.println("Type the cylinder");
+				double cylinder=lector.nextDouble();
 				System.out.println("If the car is new digit 1, if used digit 2");
 				int opt=lector.nextInt();
 				if(opt==1){
@@ -315,8 +309,8 @@ public class Main{
 				else{
 					polarized=false;
 				}
-				System.out.println("Type the gasoline capacity");
-				double cap_gasoline=lector.nextDouble();
+				System.out.println("Type the tank capacity");
+				double cap_tank=lector.nextDouble();
 				System.out.println("What is the type of gasoline.Type 1 extra, 2 for corrient or 3 for diesel");
 				int gaso=lector.nextInt();
 				if(gaso==1){
@@ -328,8 +322,6 @@ public class Main{
 				else{
 					type_gasoline=Gasoline.DIESEL;
 				}
-				System.out.println("Type the gasoline consume");
-				double gaso_consume=lector.nextDouble();
 				System.out.println("What is the type of charger.Type 1 normal, or 2 for quick");
 				int charg=lector.nextInt();
 				if(charg==1){
@@ -340,9 +332,7 @@ public class Main{
 				}
 				System.out.println("Type the duration of the battery");
 				double duration=lector.nextDouble();
-				System.out.println("Type the consume battery");
-				double consume_battery=lector.nextDouble();
-		 		message=mainCompany.addVehicle(base_price,brand,model,mileage,cylinder_capacity,type,lisence_plate,car_type,door_number,polarized,cap_gasoline,type_gasoline,gaso_consume,charger_type,duration,consume_battery);
+		 		message=mainCompany.addVehicle(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,charger_type,duration);
 	}
 }	
 

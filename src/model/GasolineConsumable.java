@@ -1,5 +1,5 @@
 package model;
 public interface GasolineConsumable {
 
-	public void gasolineConsume();
+	public double gasolineConsume();
 }

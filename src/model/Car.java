@@ -8,8 +8,8 @@ public abstract class Car extends Vehicle {
 	private int door_number;
 	private boolean polarized;
 	//Methods
-	public Car(double base_price, String brand, String model, double mileage, double cylinder_capacity, String type, String lisence_plate,String car_type, int door_number, boolean polarized) {
-		super(base_price,brand,model,mileage,cylinder_capacity,type,lisence_plate);
+	public Car(double base_price, String brand, String model, double mileage, double cylinder, String type, String lisence_plate,String car_type, int door_number, boolean polarized) {
+		super(base_price,brand,model,mileage,cylinder,type,lisence_plate);
 		this.car_type=car_type;
 		this.door_number=door_number;
 		this.polarized=polarized;

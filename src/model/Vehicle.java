@@ -9,17 +9,17 @@ public abstract class Vehicle{
 	private String brand;
 	private String model;
 	private double mileage;
-	private double cylinder_capacity;
+	private double cylinder;
 	private String type;
 	private String lisence_plate;
 	//Methods
-	public Vehicle(double base_price, String brand, String model, double mileage, double cylinder_capacity, String type, String lisence_plate){
+	public Vehicle(double base_price, String brand, String model, double mileage, double cylinder, String type, String lisence_plate){
 		this.total_price=0;
 		this.base_price=base_price;
 		this.brand=brand;
 		this.model=model;
 		this.mileage=mileage;
-		this.cylinder_capacity=cylinder_capacity;
+		this.cylinder=cylinder;
 		this.type=type;
 		this.lisence_plate=lisence_plate;
 	}
@@ -35,7 +35,6 @@ public abstract class Vehicle{
 	public void setBase_price(double base_price) {
 		this.base_price=base_price;
 	}
-
 	public String getCar_brand(){
 		return brand;
 	}
@@ -54,11 +53,11 @@ public abstract class Vehicle{
 	public void setMileage(double mileage){
 		this.mileage=mileage;
 	}
-	public double getCylinder_capacity(){
-		return cylinder_capacity;
+	public double getCylinder(){
+		return cylinder;
 	}
-	public void setCylinder_capacity(double cylinder_capacity) {
-		this.cylinder_capacity=cylinder_capacity;
+	public void setCylinder_capacity(double cylinder) {
+		this.cylinder=cylinder;
 	}
 	public String getType() {
 		return type;

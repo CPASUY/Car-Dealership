@@ -7,17 +7,19 @@ public class Motocycle extends Vehicle {
 	public static final String MOTO_CROSS="Cross";
 	//Atributes
 	private String moto_type;
-	private double gasoline_capacity;
+	private double cap_tank;
 	private double consume_gaso;
 	//Methods
-	public Motocycle(double base_price, String brand, String model, double mileage, double cylinder_capacity,String type,String lisence_plate,String moto_type,double gasoline_capacity,double consume_gaso){
-		super(base_price,brand,model,mileage,cylinder_capacity,type,lisence_plate);
+	public Motocycle(double base_price, String brand, String model, double mileage, double cylinder,String type,String lisence_plate,String moto_type,double cap_tank){
+		super(base_price,brand,model,mileage,cylinder,type,lisence_plate);
 		this.moto_type=moto_type;
-		this.gasoline_capacity=gasoline_capacity;
-		this.consume_gaso=consume_gaso;
+		this.cap_tank=cap_tank;
+		this.consume_gaso=gasolineConsume();
 	}
-	public void gasolineConsume(){
-
+	public double gasolineConsume(){
+		double displacement=super.getCylinder();
+		double consume=cap_tank*(displacement/ 90);
+		return consume;
 	}
 	public String getMoto_Type(){
 		return moto_type;
@@ -25,11 +27,11 @@ public class Motocycle extends Vehicle {
 	public void setMoto_Type(String moto_type){
 		this.moto_type=moto_type;
 	}
-	public double getGasoline_Capacity(){
-		return gasoline_capacity;
+	public double getCap_tank(){
+		return cap_tank;
 	}
-	public void setGasoline_Capacity(double gasoline_capacity){
-		this.gasoline_capacity=gasoline_capacity;
+	public void setGasoline_Capacity(double cap_tank){
+		this.cap_tank=cap_tank;
 	}
 	public double getConsume_Gaso(){
 		return consume_gaso;
