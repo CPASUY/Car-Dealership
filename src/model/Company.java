@@ -1,4 +1,5 @@
 package model;
+import java.util.Scanner;
 import java.util.ArrayList;
 public class Company {
 	//Constants
@@ -118,6 +119,12 @@ public class Company {
 	}
 		return searchVehicle;
     }
+    public void documentSoat(double price,String year,double coverage_amount){
+    	Soat document=new Soat(price,year,coverage_amount);
+    }
+    public void documentMecanical(double price,String year,double gas_level){
+    	Mecanical document=new Mecanical(price,year,gas_level);
+    }
 	public String addVehicle(double base_price,String brand,String model,double mileage,double cylinder,String type,String lisence_plate,String moto_type,double cap_tank){
 		boolean find=false;
 		boolean add=true;
@@ -126,37 +133,31 @@ public class Company {
 		}
 		String message="";
 		if(add==false || lisence_plate.equals("")){
-			for(int s=0;s<vehicles.size()&&find==false;s++){
-				if(vehicles.get(s)==null){
 					Motocycle vehicles=new Motocycle(base_price,brand,model,mileage,cylinder,type,lisence_plate,moto_type,cap_tank);
 					this.vehicles.add(vehicles);
 					find=true;
-				}
-			}
 		}
 		if(find==true){
 			message="The vehicle has been successfully registered";
 		}
-		else{
+		else if (add==true){
 			message="The vehicle has not been successfully registered";
 		}
 		return message;
 	}
 	public String addVehicle(double base_price,String brand,String model,double mileage,double cylinder,String type,String lisence_plate,String car_type,int door_number,boolean polarized,double cap_tank,String type_gasoline){
+		Scanner lector = new Scanner (System.in);
 		boolean find=false;
 		boolean add=true;
-		String message="";
 		if(lisence_plate.equals(Vehicle.VEHICLE_USED)){
 		add=searchVehicle(lisence_plate);
+		System.out.print("entra");
 		}
+		String message="";
 		if(add==false || lisence_plate.equals("")){
-			for(int s=0;s<vehicles.size()&&find==false;s++){
-				if(vehicles.get(s)==null){
 					Gasoline vehicles=new Gasoline(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline);
 					this.vehicles.add(vehicles);
 					find=true;
-				}
-			}
 		}
 		if(find==true){
 			message="The vehicle has been successfully registered";
@@ -174,18 +175,14 @@ public class Company {
 		}
 		String message="";
 		if(add==false || lisence_plate.equals("")){
-			for(int s=0;s<vehicles.size()&&find==false;s++){
-				if(vehicles.get(s)==null){
 					Electrical vehicles=new Electrical(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,charger_type,duration);
 					this.vehicles.add(vehicles);
 					find=true;
-				}
-			}
 		}
 		if(find==true){
 			message="The vehicle has been successfully registered";
 		}
-		else if(add==true){
+		else if(add==true) {
 			message="The vehicle has not been successfully registered";
 		}
 		return message;
@@ -198,13 +195,9 @@ public class Company {
 		}
 		String message="";
 		if(add==false || lisence_plate.equals("")){
-			for(int s=0;s<vehicles.size()&&find==false;s++){
-				if(vehicles.get(s)==null){
-					Hybrid vehicles=new Hybrid(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,charger_type,duration);
-					this.vehicles.add(vehicles);
-					find=true;
-				}
-			}
+				Hybrid vehicles=new Hybrid(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,charger_type,duration);
+				this.vehicles.add(vehicles);
+				find=true;
 		}
 		if(find==true){
 			message="The vehicle has been successfully registered";

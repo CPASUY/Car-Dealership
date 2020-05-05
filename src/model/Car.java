@@ -14,10 +14,10 @@ public abstract class Car extends Vehicle {
 		this.door_number=door_number;
 		this.polarized=polarized;
 	}
-	public String getCar_Type(){
+	public String getCar_type(){
 		return car_type;
 	}
-	public void setCar_Type(String car_type){
+	public void setCar_type(String car_type){
 		this.car_type=car_type;
 	}
 	public int getDoor_number(){

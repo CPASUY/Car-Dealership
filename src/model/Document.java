@@ -1,6 +1,6 @@
 package model;
 import java.util.Random;
-public class Document{
+public abstract class Document{
 	//Constants
 	public static final int DIMENSION=4;
 	//Atributes
@@ -8,7 +8,7 @@ public class Document{
 	private String year;
 	private int[][] image_code;
 	//Methods
-	public Documents(double price,String year,int[][]image_code){
+	public Document(double price,String year){
 		this.price=price;
 		this.year=year;
 		this.image_code= initialize();
@@ -17,7 +17,7 @@ public class Document{
 		int [][]code = new int[DIMENSION][DIMENSION];
 		for (int s=0;s< code.length; s++) {
   			for(int m=0;m< code[s].length;m++) {
-    		 	code[s][m] = Math.random()*10;
+    		 	code[s][m] = (int)(Math.random()*10);
   			}
   		}
   		return code;
@@ -33,5 +33,8 @@ public class Document{
 	}
 	public void setYear(String year) {
 		this.year=year;
+	}
+	public int[][] getImage_code() {
+		return image_code;
 	}
 }

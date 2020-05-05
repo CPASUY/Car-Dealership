@@ -34,10 +34,23 @@ public class Main{
 						objMain.enterClient();
 						break;
 					case 3:
-						
+						System.out.println("What kind of vehicle you want to register. Enter 1 for motorcycles, 2 for gasoline cars, 3 for electric cars or 4 for hybrid cars");
+						int o=lector.nextInt();
+						if(o==1){
+							objMain.enterVehiclesMotocycle();
+						}
+						else if(o==2){
+							objMain.enterVehicleGasoline();
+						}
+						else if(o==3){
+							objMain.enterVehicleElectrical();
+						}
+						else{
+							objMain.enterVehicleHybrid();
+						}
 						break;
 					case 4:
-						
+					
 						break;
 					case 5:
 						
@@ -77,6 +90,28 @@ public class Main{
 			String message=mainCompany.addAdvisor(name.toUpperCase(),last_name.toUpperCase(),identification);
 			System.out.println(message);
 		}
+	public void documentSoat(){
+		Scanner lector = new Scanner (System.in);
+		System.out.println("Type the price of the document");
+		double price=lector.nextDouble();
+		System.out.println("Type the year of the document");
+		String year=lector.nextLine();
+		lector.nextLine();
+		System.out.println("What is the amount of accident coverage of the vehicle to register");
+		double coverage_amount=lector.nextDouble();
+		mainCompany.documentSoat(price,year,coverage_amount);
+	}
+	public void documentMecanical(){
+		Scanner lector = new Scanner (System.in);
+		System.out.println("Type the price of the document");
+		double price=lector.nextDouble();
+		System.out.println("Type the year of the document");
+		String year=lector.nextLine();
+		lector.nextLine();
+		System.out.println("What are the gas levels");
+		double gas_level=lector.nextDouble();
+		mainCompany.documentMecanical(price,year,gas_level);
+	}
 	public void enterClient(){
 			Scanner lector = new Scanner (System.in);
 			System.out.println("Type the name");
@@ -103,6 +138,7 @@ public class Main{
 				double base_price=lector.nextDouble();
 				System.out.println("Type the brand");
 				String brand=lector.nextLine();
+				lector.nextLine();
 				System.out.println("Type the model");
 				String model=lector.nextLine();
 				System.out.println("Type the cylinder");
@@ -118,6 +154,7 @@ public class Main{
 					type=Vehicle.VEHICLE_USED;
 					System.out.println("Type the lisence plate");
 					lisence_plate=lector.nextLine();
+					lector.nextLine();
 					System.out.println("Type the mileage");
 					mileage=lector.nextDouble();
 				}
@@ -137,6 +174,10 @@ public class Main{
 				}
 				System.out.println("Type the gasoline capacity");
 				double cap_tank=lector.nextDouble();
+				System.out.println("--Additional information about the soat--");
+				documentSoat();
+				System.out.println("--Additional information about the mechanical technical revision--");
+				documentMecanical();
 				message=mainCompany.addVehicle(base_price,brand,model,mileage,cylinder,type,lisence_plate,moto_type,cap_tank);
 				System.out.println(message);
 	}
@@ -153,6 +194,7 @@ public class Main{
 				double base_price=lector.nextDouble();
 				System.out.println("Type the brand");
 				String brand=lector.nextLine();
+				lector.nextLine();
 				System.out.println("Type the model");
 				String model=lector.nextLine();
 				System.out.println("Type the cylinder");
@@ -166,6 +208,7 @@ public class Main{
 					type=Vehicle.VEHICLE_USED;
 					System.out.println("Type the lisence plate");
 					lisence_plate=lector.nextLine();
+					lector.nextLine();
 					System.out.println("Type the mileage");
 					mileage=lector.nextDouble();
 				}
@@ -200,7 +243,12 @@ public class Main{
 				else{
 					type_gasoline=Gasoline.DIESEL;
 				}
+				System.out.println("--Additional information about the soat--");
+				documentSoat();
+				System.out.println("--Additional information about the mechanical technical revision--");
+				documentMecanical();
 		 		message=mainCompany.addVehicle(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline);
+		 		System.out.println(message);
 	}
 	public void enterVehicleElectrical(){
 			Scanner lector = new Scanner (System.in);
@@ -215,6 +263,7 @@ public class Main{
 				double base_price=lector.nextDouble();
 				System.out.println("Type the brand");
 				String brand=lector.nextLine();
+				lector.nextLine();
 				System.out.println("Type the model");
 				String model=lector.nextLine();
 				System.out.println("Type the cylinder");
@@ -228,6 +277,7 @@ public class Main{
 					type=Vehicle.VEHICLE_USED;
 					System.out.println("Type the lisence plate");
 					lisence_plate=lector.nextLine();
+					lector.nextLine();
 					System.out.println("Type the mileage");
 					mileage=lector.nextDouble();
 				}
@@ -259,7 +309,12 @@ public class Main{
 				}
 				System.out.println("Type the duration of the charger");
 				double duration=lector.nextDouble();
+				System.out.println("--Additional information about the soat--");
+				documentSoat();
+				System.out.println("--Additional information about the mechanical technical revision--");
+				documentMecanical();
 		 		message=mainCompany.addVehicle(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,charger_type,duration);
+		 		System.out.println(message);
 	}
 	public void enterVehicleHybrid(){
 			Scanner lector = new Scanner (System.in);
@@ -275,6 +330,7 @@ public class Main{
 				double base_price=lector.nextDouble();
 				System.out.println("Type the brand");
 				String brand=lector.nextLine();
+				lector.nextLine();
 				System.out.println("Type the model");
 				String model=lector.nextLine();
 				System.out.println("Type the cylinder");
@@ -288,6 +344,7 @@ public class Main{
 					type=Vehicle.VEHICLE_USED;
 					System.out.println("Type the lisence plate");
 					lisence_plate=lector.nextLine();
+					lector.nextLine();
 					System.out.println("Type the mileage");
 					mileage=lector.nextDouble();
 				}
@@ -332,8 +389,14 @@ public class Main{
 				}
 				System.out.println("Type the duration of the battery");
 				double duration=lector.nextDouble();
+				System.out.println("--Additional information about the soat--");
+				documentSoat();
+				System.out.println("--Additional information about the mechanical technical revision--");
+				documentMecanical();
 		 		message=mainCompany.addVehicle(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,charger_type,duration);
+		 		System.out.println(message);
 	}
+
 }	
 
 

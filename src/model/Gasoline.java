@@ -39,4 +39,17 @@ public class Gasoline extends Car implements GasolineConsumable {
 	public void setGaso_consume(double gaso_consume){
 		this.gaso_consume=gaso_consume;
 	}
+	public String toString(){
+		double base_price=super.getBase_price();
+		double displacement=super.getCylinder();
+		String brand=super.getBrand();
+		String model=super.getModel();
+		double mileage=super.getMileage();
+		String type=super.getType();
+		String lisence_plate=super.getLisence_plate();
+		String car_type=super.getCar_type();
+		int door_number=super.getDoor_number();
+		boolean polarized=super.getPolarized();
+		return "Base price: "+base_price+"\n"+"Brand: "+brand+"\n"+"Model: "+model+"\n"+"mileage: "+mileage+"\n"+"Displacement: "+displacement+"\n"+"Used or New: "+type+"\n"+"Lisence plate: "+lisence_plate+"\n"+"Car type: "+car_type+"\n"+"Door number: "+door_number+"\n"+"Polarized: "+polarized+"\n"+"Tank capacity: "+cap_tank+"\n"+"Gasoline type: "+type_gasoline;
+	}
 }

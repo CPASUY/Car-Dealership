@@ -12,6 +12,9 @@ public abstract class Vehicle{
 	private double cylinder;
 	private String type;
 	private String lisence_plate;
+	//Relations
+	private Soat soat;
+	private Mecanical mecanical;
 	//Methods
 	public Vehicle(double base_price, String brand, String model, double mileage, double cylinder, String type, String lisence_plate){
 		this.total_price=0;
@@ -35,10 +38,10 @@ public abstract class Vehicle{
 	public void setBase_price(double base_price) {
 		this.base_price=base_price;
 	}
-	public String getCar_brand(){
+	public String getBrand(){
 		return brand;
 	}
-	public void setCar_brand(String brand){
+	public void setBrand(String brand){
 		this.brand=brand;
 	}
 	public String getModel() {
@@ -56,7 +59,7 @@ public abstract class Vehicle{
 	public double getCylinder(){
 		return cylinder;
 	}
-	public void setCylinder_capacity(double cylinder) {
+	public void setCylinder(double cylinder) {
 		this.cylinder=cylinder;
 	}
 	public String getType() {
