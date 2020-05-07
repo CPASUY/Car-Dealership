@@ -1,5 +1,6 @@
 package model;
-public class Motocycle extends Vehicle {
+import java.time.LocalDate;
+public class Motocycle extends Vehicle{
 	//Constants
 	public static final String MOTO_STANDAR="Standar";
 	public static final String MOTO_SPORT="Sport";
@@ -10,11 +11,43 @@ public class Motocycle extends Vehicle {
 	private double cap_tank;
 	private double consume_gaso;
 	//Methods
-	public Motocycle(double base_price, String brand, String model, double mileage, double cylinder,String type,String lisence_plate,String moto_type,double cap_tank){
-		super(base_price,brand,model,mileage,cylinder,type,lisence_plate);
+	public Motocycle(double base_price, String brand, String model, double mileage, double cylinder,String type,String lisence_plate,String moto_type,double cap_tank,double priceSoat,String yearSoat,double coverage_amount,double priceMec,String yearMec,double gas_level){
+		super(base_price,brand,model,mileage,cylinder,type,lisence_plate,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
 		this.moto_type=moto_type;
 		this.cap_tank=cap_tank;
 		this.consume_gaso=gasolineConsume();
+		total_price();
+	}
+	public void total_price(){
+		double total_price=0;
+		double total=0;
+		double desc=0;
+		double base=super.getBase_price();
+		String type=super.getType();
+		int year=LocalDate.now().getYear();
+		String dateSoat=super.getSoat().getYear();
+		String dateMecanical=super.getSoat().getYear();
+		if(dateSoat.equals(year) && dateMecanical.equals(year) && type.equals(Vehicle.VEHICLE_NEW)){
+			total=base*0.04;
+			total_price=total+base;
+		}
+		else if(dateSoat.equals(year) && dateMecanical.equals(year) && type.equals(Vehicle.VEHICLE_USED)){
+			total=base*0.04;
+			total_price=total+base;
+			desc=base*0.02;
+			total_price=total+base-desc;
+		}
+		else if(!dateSoat.equals(year) && !dateMecanical.equals(year) && type.equals(Vehicle.VEHICLE_NEW)){
+			total=base*0.04;
+			total_price=total+base+500000;
+		}
+		else if(!dateSoat.equals(year) && !dateMecanical.equals(year) && type.equals(Vehicle.VEHICLE_USED)){
+			total=base*0.04;
+			total_price=total+base+500000;
+			desc=base*0.02;
+			total_price=total+base-desc;
+		}
+		super.setTotal_price(total_price);
 	}
 	public double gasolineConsume(){
 		double displacement=super.getCylinder();

@@ -1,8 +1,11 @@
 package model;
+import java.util.ArrayList;
 public class Client extends Person {
 	//Atributes
 	private String phone_number;
 	private String mail;
+	//Relations
+	private ArrayList<Vehicle>interest;
 	//Methods
 	public Client(){
 		super();
@@ -11,6 +14,7 @@ public class Client extends Person {
 		super(name,last_name,identification);
 		this.phone_number=phone_number;
 		this.mail=mail;
+		this.interest=new ArrayList<Vehicle>();
 	}
 	public String getPhone_number(){
 		return phone_number;
@@ -24,5 +28,7 @@ public class Client extends Person {
 	public void setMail(String mail) {
 		this.mail=mail;
 	}
-
+	public ArrayList<Vehicle> getInterest(){
+		return interest;
+	}
 }

@@ -20,6 +20,33 @@ public class Company {
 		this.sellers = new Advisor[SELLERS];
 		this.vehicles=new ArrayList<Vehicle>();
 	}
+	public String getName() {
+	return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getNit() {
+		return nit;
+	}
+	public void setNit(String nit) {
+		this.nit = nit;
+	}
+	public double getTotal_earnings() {
+		return total_earnings;
+	}
+	public void setTotal_earnings(double total_earnings) {
+		this.total_earnings = total_earnings;
+	}
+	public double getSales_number() {
+		return sales_number;
+	}
+	public void setSales_number(double sales_number) {
+		this.sales_number = sales_number;
+	}
+	public ArrayList<Vehicle> getVehicles(){
+		return vehicles;
+	}
 	public Advisor searchAdvisor(String identification){
 	Advisor searchAdvisor=null;
 	boolean find=false;
@@ -119,13 +146,7 @@ public class Company {
 	}
 		return searchVehicle;
     }
-    public void documentSoat(double price,String year,double coverage_amount){
-    	Soat document=new Soat(price,year,coverage_amount);
-    }
-    public void documentMecanical(double price,String year,double gas_level){
-    	Mecanical document=new Mecanical(price,year,gas_level);
-    }
-	public String addVehicle(double base_price,String brand,String model,double mileage,double cylinder,String type,String lisence_plate,String moto_type,double cap_tank){
+	public String addVehicle(double base_price,String brand,String model,double mileage,double cylinder,String type,String lisence_plate,String moto_type,double cap_tank,double priceSoat,String yearSoat,double coverage_amount,double priceMec,String yearMec,double gas_level){
 		boolean find=false;
 		boolean add=true;
 		if(lisence_plate.equals(Vehicle.VEHICLE_USED)){
@@ -133,7 +154,7 @@ public class Company {
 		}
 		String message="";
 		if(add==false || lisence_plate.equals("")){
-					Motocycle vehicles=new Motocycle(base_price,brand,model,mileage,cylinder,type,lisence_plate,moto_type,cap_tank);
+					Motocycle vehicles=new Motocycle(base_price,brand,model,mileage,cylinder,type,lisence_plate,moto_type,cap_tank,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
 					this.vehicles.add(vehicles);
 					find=true;
 		}
@@ -145,17 +166,16 @@ public class Company {
 		}
 		return message;
 	}
-	public String addVehicle(double base_price,String brand,String model,double mileage,double cylinder,String type,String lisence_plate,String car_type,int door_number,boolean polarized,double cap_tank,String type_gasoline){
+	public String addVehicle(double base_price,String brand,String model,double mileage,double cylinder,String type,String lisence_plate,String car_type,int door_number,boolean polarized,double cap_tank,String type_gasoline,double priceSoat,String yearSoat,double coverage_amount,double priceMec,String yearMec,double gas_level){
 		Scanner lector = new Scanner (System.in);
 		boolean find=false;
 		boolean add=true;
 		if(lisence_plate.equals(Vehicle.VEHICLE_USED)){
 		add=searchVehicle(lisence_plate);
-		System.out.print("entra");
 		}
 		String message="";
 		if(add==false || lisence_plate.equals("")){
-					Gasoline vehicles=new Gasoline(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline);
+					Gasoline vehicles=new Gasoline(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
 					this.vehicles.add(vehicles);
 					find=true;
 		}
@@ -167,7 +187,7 @@ public class Company {
 		}
 		return message;
 	}
-	public String addVehicle(double base_price,String brand,String model,double mileage,double cylinder,String type,String lisence_plate,String car_type,int door_number,boolean polarized,String charger_type,double duration){
+	public String addVehicle(double base_price,String brand,String model,double mileage,double cylinder,String type,String lisence_plate,String car_type,int door_number,boolean polarized,String charger_type,double duration,double priceSoat,String yearSoat,double coverage_amount,double priceMec,String yearMec,double gas_level){
 		boolean find=false;
 		boolean add=true;
 		if(lisence_plate.equals(Vehicle.VEHICLE_USED)){
@@ -175,7 +195,7 @@ public class Company {
 		}
 		String message="";
 		if(add==false || lisence_plate.equals("")){
-					Electrical vehicles=new Electrical(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,charger_type,duration);
+					Electrical vehicles=new Electrical(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
 					this.vehicles.add(vehicles);
 					find=true;
 		}
@@ -187,7 +207,7 @@ public class Company {
 		}
 		return message;
 	}
-	public String addVehicle(double base_price,String brand,String model,double mileage,double cylinder,String type,String lisence_plate,String car_type,int door_number,boolean polarized,double cap_tank,String type_gasoline,String charger_type,double duration){
+	public String addVehicle(double base_price,String brand,String model,double mileage,double cylinder,String type,String lisence_plate,String car_type,int door_number,boolean polarized,double cap_tank,String type_gasoline,String charger_type,double duration,double priceSoat,String yearSoat,double coverage_amount,double priceMec,String yearMec,double gas_level){
 		boolean find=false;
 		boolean add=true;
 		if(lisence_plate.equals(Vehicle.VEHICLE_USED)){
@@ -195,7 +215,7 @@ public class Company {
 		}
 		String message="";
 		if(add==false || lisence_plate.equals("")){
-				Hybrid vehicles=new Hybrid(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,charger_type,duration);
+				Hybrid vehicles=new Hybrid(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
 				this.vehicles.add(vehicles);
 				find=true;
 		}
@@ -207,31 +227,100 @@ public class Company {
 		}
 		return message;
 	}
-	public String getName() {
-		return name;
+	public String interest(String identificationA,String identificationC,String vehicle,String type){
+		Advisor search=searchAdvisor(identificationA);
+		String message="";
+		ArrayList<Vehicle> interest;
+		interest=new ArrayList<Vehicle>();
+		if (search!=null){
+	    	message="Error. Avisor doesnt exists.";
+	    }
+	    else{
+	   		for (int s=0;s<SELLERS;s++){
+	   			if(sellers[s].getIdentification().equals(identificationA)){
+	   				Client [] clients=sellers[s].getClients();
+	   				for(int m=0;m<Advisor.CLIENTS;m++){
+	   					if(clients[m].getIdentification().equals(identificationC)){
+	   						interest=clients[m].getInterest();
+	   						if(type.equals(Vehicle.VEHICLE_NEW)){
+								if(vehicle.equals("Motocycle")){
+									for(int w=0;w<vehicles.size();w++){
+										if(vehicles.get(w).getType().equals(type) && vehicles.get(w) instanceof Motocycle){
+											interest.add(vehicles.get(w));
+										}
+									}
+								}
+								else if(vehicle.equals("Gasoline")){
+									for(int w=0;w<vehicles.size();w++){
+										if(vehicles.get(w).getType().equals(type) && vehicles.get(w) instanceof Gasoline){
+											interest.add(vehicles.get(w));
+										}
+									}
+								}
+								else if(vehicle.equals("Electrical")){
+									for(int w=0;w<vehicles.size();w++){
+										if(vehicles.get(w).getType().equals(type) && vehicles.get(w) instanceof Electrical){
+											interest.add(vehicles.get(w));
+										}
+									}
+								}
+								else if(vehicle.equals("Hybrid")){
+									for(int w=0;w<vehicles.size();w++){
+										if(vehicles.get(w).getType().equals(type) && vehicles.get(w) instanceof Hybrid){
+											interest.add(vehicles.get(w));
+										}
+									}
+								}
+							}
+							else if(type.equals(Vehicle.VEHICLE_USED)){
+								if(vehicle.equals("Motocycle")){
+									for(int w=0;w<vehicles.size();w++){
+										if(vehicles.get(w).getType().equals(type) && vehicles.get(w) instanceof Motocycle){
+											interest.add(vehicles.get(w));
+										}
+									}
+								}
+								else if(vehicle.equals("Gasoline")){
+									for(int w=0;w<vehicles.size();w++){
+										if(vehicles.get(w).getType().equals(type) && vehicles.get(w) instanceof Gasoline){
+											interest.add(vehicles.get(w));
+										}
+									}
+								}
+								else if(vehicle.equals("Electrical")){
+									for(int w=0;w<vehicles.size();w++){
+										if(vehicles.get(w).getType().equals(type) && vehicles.get(w) instanceof Electrical){
+											interest.add(vehicles.get(w));
+										}
+									}
+								}
+								else if(vehicle.equals("Hybrid")){
+									for(int w=0;w<vehicles.size();w++){
+										if(vehicles.get(w).getType().equals(type) && vehicles.get(w) instanceof Hybrid){
+											interest.add(vehicles.get(w));
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		message=catalogue(interest,identificationC);
+		return message;
 	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getNit() {
-		return nit;
-	}
-	public void setNit(String nit) {
-		this.nit = nit;
-	}
-	public double getTotal_earnings() {
-		return total_earnings;
-	}
-	public void setTotal_earnings(double total_earnings) {
-		this.total_earnings = total_earnings;
-	}
-	public double getSales_number() {
-		return sales_number;
-	}
-	public void setSales_number(double sales_number) {
-		this.sales_number = sales_number;
-	}
-	public ArrayList<Vehicle> getVehicles(){
-		return vehicles;
+	public String catalogue( ArrayList<Vehicle> interest,String identification){
+		String message="";
+		Client objClient=searchClient(identification);
+		if(objClient==null){
+			message="The client doesn exist";
+		}
+		else{
+			for(int s=0;s<interest.size();s++){
+				message+=interest.get(s).toString()+"\n";
+			}
+		}
+		return message;
 	}
 }

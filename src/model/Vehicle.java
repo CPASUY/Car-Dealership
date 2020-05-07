@@ -16,7 +16,7 @@ public abstract class Vehicle{
 	private Soat soat;
 	private Mecanical mecanical;
 	//Methods
-	public Vehicle(double base_price, String brand, String model, double mileage, double cylinder, String type, String lisence_plate){
+	public Vehicle(double base_price, String brand, String model, double mileage, double cylinder, String type, String lisence_plate,double priceSoat,String yearSoat,double coverage_amount,double priceMec,String yearMec,double gas_level){
 		this.total_price=0;
 		this.base_price=base_price;
 		this.brand=brand;
@@ -25,6 +25,8 @@ public abstract class Vehicle{
 		this.cylinder=cylinder;
 		this.type=type;
 		this.lisence_plate=lisence_plate;
+		this.soat=new Soat(priceSoat,yearSoat,coverage_amount);
+		this.mecanical=new Mecanical(priceMec,yearMec,gas_level);
 	}
 	public double getTotal_price(){
 		return total_price;
@@ -74,5 +76,10 @@ public abstract class Vehicle{
 	public void setLisence_plate(String lisence_plate) {
 		this.lisence_plate=lisence_plate;
 	}
-
+	public Soat getSoat() {
+		return soat;
+	}
+	public Mecanical getMecanical() {
+		return mecanical;
+	}
 }

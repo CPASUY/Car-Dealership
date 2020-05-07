@@ -1,4 +1,5 @@
 package model;
+import java.time.LocalDate;
 public class Gasoline extends Car implements GasolineConsumable {
 	//Constants
 	public static final String EXTRA="Extra";
@@ -9,11 +10,29 @@ public class Gasoline extends Car implements GasolineConsumable {
 	private String type_gasoline;
 	private double gaso_consume;
 	//Methods
-	public Gasoline(double base_price, String brand, String model, double mileage, double cylinder, String type, String lisence_plate,String car_type, int door_number, boolean polarized, double cap_tank, String type_gasoline) {
-		super(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized);
+	public Gasoline(double base_price, String brand, String model, double mileage, double cylinder, String type, String lisence_plate,String car_type, int door_number, boolean polarized, double cap_tank, String type_gasoline,double priceSoat,String yearSoat,double coverage_amount,double priceMec,String yearMec,double gas_level) {
+		super(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
 		this.cap_tank=cap_tank;
 		this.type_gasoline=type_gasoline;
 		this.gaso_consume=gasolineConsume();
+		total_price();
+	}
+	public void total_price(){
+		double total_price=0;
+		double total=0;
+		double desc=0;
+		double base=super.getBase_price();
+		String type=super.getType();
+		int year=LocalDate.now().getYear();
+		String dateSoat=super.getSoat().getYear();
+		String dateMecanical=super.getSoat().getYear();
+		if(!dateSoat.equals(year) && !dateMecanical.equals(year) && type.equals(Vehicle.VEHICLE_USED)){
+			total=base*0.2;
+			total_price=total+base+500000;
+			desc=base*0.1;
+			total_price=total+base-desc;
+		}
+		super.setTotal_price(total_price);
 	}
 	@Override
 	public double gasolineConsume(){

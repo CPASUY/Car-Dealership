@@ -28,7 +28,7 @@ public class Document{
 	public void setPrice(double price) {
 		this.price=price;
 	}
-	public String getYear() {
+	public String getYear(){
 		return year;
 	}
 	public void setYear(String year) {

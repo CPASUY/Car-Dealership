@@ -1,4 +1,5 @@
 package model;
+import java.time.LocalDate;
 public class Hybrid extends Car implements GasolineConsumable, BatteryConsumable {
 	//Constamts
 	public static final String NORMAL="Normal";
@@ -11,14 +12,46 @@ public class Hybrid extends Car implements GasolineConsumable, BatteryConsumable
 	private double duration;
 	private double consume_battery;
 	//Methods
-	public Hybrid(double base_price, String brand, String model, double mileage, double cylinder, String type, String lisence_plate,String car_type, int door_number, boolean polarized, double cap_tank, String type_gasoline,String charger_type, double duration) {
-		super(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized);
+	public Hybrid(double base_price, String brand, String model, double mileage, double cylinder, String type, String lisence_plate,String car_type, int door_number, boolean polarized, double cap_tank, String type_gasoline,String charger_type, double duration,double priceSoat,String yearSoat,double coverage_amount,double priceMec,String yearMec,double gas_level) {
+		super(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
 		this.cap_tank=cap_tank;
 		this.type_gasoline=type_gasoline;
 		this.gaso_consume=gasolineConsume();
 		this.charger_type=charger_type;
 		this.duration=duration;
 		this.consume_battery=batteryConsume();
+		total_price();
+	}
+	public void total_price(){
+		double total_price=0;
+		double total=0;
+		double desc=0;
+		double base=super.getBase_price();
+		String type=super.getType();
+		int year=LocalDate.now().getYear();
+		String dateSoat=super.getSoat().getYear();
+		String dateMecanical=super.getSoat().getYear();
+		if(dateSoat.equals(year) && dateMecanical.equals(year) && type.equals(Vehicle.VEHICLE_NEW)){
+			total=base*0.15;
+			total_price=total+base;
+		}
+		else if(dateSoat.equals(year) && dateMecanical.equals(year) && type.equals(Vehicle.VEHICLE_USED)){
+			total=base*0.15;
+			total_price=total+base;
+			desc=base*0.1;
+			total_price=total+base-desc;
+		}
+		else if(!dateSoat.equals(year) && !dateMecanical.equals(year) && type.equals(Vehicle.VEHICLE_NEW)){
+			total=base*0.15;
+			total_price=total+base+500000;
+		}
+		else if(!dateSoat.equals(year) && !dateMecanical.equals(year) && type.equals(Vehicle.VEHICLE_USED)){
+			total=base*0.15;
+			total_price=total+base+500000;
+			desc=base*0.1;
+			total_price=total+base-desc;
+		}
+		super.setTotal_price(total_price);
 	}
 	public double gasolineConsume(){
 		double displacement=super.getCylinder();
