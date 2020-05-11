@@ -4,6 +4,8 @@ import java.util.ArrayList;
 public class Company {
 	//Constants
 	public static final int SELLERS=10;
+	public static final int ROW=10;
+	public static final int COLUMN=5;
 	//Atributes
 	private String name;
 	private String nit;
@@ -11,6 +13,8 @@ public class Company {
 	private double sales_number;
 	private Advisor[] sellers;
 	private ArrayList<Vehicle>vehicles;
+	private ArrayList<Client>waitingClients;
+	private Vehicle [][]parkingLot;
 	//Methods
 	public Company(String name, String nit) {
 		this.name=name;
@@ -19,6 +23,8 @@ public class Company {
 		this.sales_number=0;
 		this.sellers = new Advisor[SELLERS];
 		this.vehicles=new ArrayList<Vehicle>();
+		this.waitingClients=new ArrayList<Client>();
+		this.parkingLot= new Vehicle[ROW][COLUMN];
 	}
 	public String getName() {
 	return name;
@@ -107,7 +113,6 @@ public class Company {
 	{   String message="";
 		boolean add=false;
 	    Client search=searchClient(identification);
-	    
 	    if (search!=null){
 	    	message="Error. Client already exists.";
 	    }
@@ -128,7 +133,8 @@ public class Company {
 	    	message="The new client was successfully registered.";
 	    }
 	    else{
-	    	message="Error.Cannot register more clients";
+	    	Client clients=new Client(name,last_name,identification,phone_number,mail);
+	    	waitingClients.add(clients);
 	    	}
 	    }
         return message;
@@ -149,19 +155,64 @@ public class Company {
 	public String addVehicle(double base_price,String brand,String model,double mileage,double cylinder,String type,String lisence_plate,String moto_type,double cap_tank,double priceSoat,String yearSoat,double coverage_amount,double priceMec,String yearMec,double gas_level){
 		boolean find=false;
 		boolean add=true;
+		boolean park=false;
+		String message="";
 		if(lisence_plate.equals(Vehicle.VEHICLE_USED)){
 		add=searchVehicle(lisence_plate);
 		}
-		String message="";
-		if(add==false || lisence_plate.equals("")){
-					Motocycle vehicles=new Motocycle(base_price,brand,model,mileage,cylinder,type,lisence_plate,moto_type,cap_tank,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
-					this.vehicles.add(vehicles);
-					find=true;
-		}
-		if(find==true){
+		int modelVehicle = Integer.parseInt(model);
+				if(modelVehicle==2014){
+					for(int m=0;m<parkingLot.length;m++){
+						if(parkingLot[m][0]==null){
+							parkingLot[m][0]=new Motocycle(base_price,brand,model,mileage,cylinder,type,lisence_plate,moto_type,cap_tank,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							park=true;
+						}
+					}
+				}
+				else if(modelVehicle==2013){
+					for(int m=0;m<parkingLot.length;m++){
+						if(parkingLot[m][1]==null){
+							parkingLot[m][1]=new Motocycle(base_price,brand,model,mileage,cylinder,type,lisence_plate,moto_type,cap_tank,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							park=true;
+						}
+					}
+				}
+				else if(modelVehicle==2012){
+					for(int m=0;m<parkingLot.length;m++){
+						if(parkingLot[m][2]==null){
+							parkingLot[m][2]=new Motocycle(base_price,brand,model,mileage,cylinder,type,lisence_plate,moto_type,cap_tank,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							park=true;
+						}
+					}
+				}
+				else if(modelVehicle==2011){
+					for(int m=0;m<parkingLot.length;m++){
+						if(parkingLot[m][3]==null){
+							parkingLot[m][3]=new Motocycle(base_price,brand,model,mileage,cylinder,type,lisence_plate,moto_type,cap_tank,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							park=true;
+						}
+					}
+				}
+				else if(modelVehicle<2011){
+					for(int m=0;m<parkingLot.length;m++){
+						if(parkingLot[m][4]==null){
+							parkingLot[m][4]=new Motocycle(base_price,brand,model,mileage,cylinder,type,lisence_plate,moto_type,cap_tank,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							park=true;
+						}
+					}
+				}
+			else if(add==false || lisence_plate.equals("")){
+			Motocycle vehicles=new Motocycle(base_price,brand,model,mileage,cylinder,type,lisence_plate,moto_type,cap_tank,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+			this.vehicles.add(vehicles);
+			find=true;
+			}
+		if(add==false){
 			message="The vehicle has been successfully registered";
 		}
-		else if (add==true){
+		else if(park==true){
+			message="The vehicle has been stored in the parking lot";
+		}
+		else if(add==true){
 			message="The vehicle has not been successfully registered";
 		}
 		return message;
@@ -170,17 +221,62 @@ public class Company {
 		Scanner lector = new Scanner (System.in);
 		boolean find=false;
 		boolean add=true;
+		boolean park=false;
+		String message="";
 		if(lisence_plate.equals(Vehicle.VEHICLE_USED)){
 		add=searchVehicle(lisence_plate);
 		}
-		String message="";
-		if(add==false || lisence_plate.equals("")){
+		int modelVehicle = Integer.parseInt(model);
+				if(modelVehicle==2014){
+					for(int m=0;m<parkingLot.length;m++){
+						if(parkingLot[m][0]==null){
+							parkingLot[m][0]=new Gasoline(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							park=true;
+						}
+					}
+				}
+				else if(modelVehicle==2013){
+					for(int m=0;m<parkingLot.length;m++){
+						if(parkingLot[m][1]==null){
+							parkingLot[m][1]=new Gasoline(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							park=true;
+						}
+					}
+				}
+				else if(modelVehicle==2012){
+					for(int m=0;m<parkingLot.length;m++){
+						if(parkingLot[m][2]==null){
+							parkingLot[m][2]=new Gasoline(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							park=true;
+						}
+					}
+				}
+				else if(modelVehicle==2011){
+					for(int m=0;m<parkingLot.length;m++){
+						if(parkingLot[m][3]==null){
+							parkingLot[m][3]=new Gasoline(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							park=true;
+						}
+					}
+				}
+				else if(modelVehicle<2011){
+					for(int m=0;m<parkingLot.length;m++){
+						if(parkingLot[m][4]==null){
+							parkingLot[m][4]=new Gasoline(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							park=true;
+						}
+					}
+				}
+			else if(add==false || lisence_plate.equals("")){
 					Gasoline vehicles=new Gasoline(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
 					this.vehicles.add(vehicles);
 					find=true;
-		}
-		if(find==true){
+			}
+		if(add==false){
 			message="The vehicle has been successfully registered";
+		}
+		else if(park==true){
+			message="The vehicle has been stored in the parking lot";
 		}
 		else if(add==true){
 			message="The vehicle has not been successfully registered";
@@ -190,19 +286,64 @@ public class Company {
 	public String addVehicle(double base_price,String brand,String model,double mileage,double cylinder,String type,String lisence_plate,String car_type,int door_number,boolean polarized,String charger_type,double duration,double priceSoat,String yearSoat,double coverage_amount,double priceMec,String yearMec,double gas_level){
 		boolean find=false;
 		boolean add=true;
+		boolean park=false;
+		String message="";
 		if(lisence_plate.equals(Vehicle.VEHICLE_USED)){
 		add=searchVehicle(lisence_plate);
 		}
-		String message="";
-		if(add==false || lisence_plate.equals("")){
-					Electrical vehicles=new Electrical(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
-					this.vehicles.add(vehicles);
-					find=true;
-		}
-		if(find==true){
+		int modelVehicle = Integer.parseInt(model);
+				if(modelVehicle==2014){
+					for(int m=0;m<parkingLot.length;m++){
+						if(parkingLot[m][0]==null){
+							parkingLot[m][0]=new Electrical(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							park=true;
+						}
+					}
+				}
+				else if(modelVehicle==2013){
+					for(int m=0;m<parkingLot.length;m++){
+						if(parkingLot[m][1]==null){
+							parkingLot[m][1]=new Electrical(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							park=true;
+						}
+					}
+				}
+				else if(modelVehicle==2012){
+					for(int m=0;m<parkingLot.length;m++){
+						if(parkingLot[m][2]==null){
+							parkingLot[m][2]=new Electrical(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							park=true;
+						}
+					}
+				}
+				else if(modelVehicle==2011){
+					for(int m=0;m<parkingLot.length;m++){
+						if(parkingLot[m][3]==null){
+							parkingLot[m][3]=new Electrical(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							park=true;
+						}
+					}
+				}
+				else if(modelVehicle<2011){
+					for(int m=0;m<parkingLot.length;m++){
+						if(parkingLot[m][4]==null){
+							parkingLot[m][4]=new Electrical(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							park=true;
+						}
+					}
+				}
+			else if(add==false || lisence_plate.equals("")){
+				Electrical vehicles=new Electrical(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+				this.vehicles.add(vehicles);
+				find=true;
+			}
+		if(add==false){
 			message="The vehicle has been successfully registered";
 		}
-		else if(add==true) {
+		else if(park==true){
+			message="The vehicle has been stored in the parking lot";
+		}
+		else if(add==true){
 			message="The vehicle has not been successfully registered";
 		}
 		return message;
@@ -210,17 +351,62 @@ public class Company {
 	public String addVehicle(double base_price,String brand,String model,double mileage,double cylinder,String type,String lisence_plate,String car_type,int door_number,boolean polarized,double cap_tank,String type_gasoline,String charger_type,double duration,double priceSoat,String yearSoat,double coverage_amount,double priceMec,String yearMec,double gas_level){
 		boolean find=false;
 		boolean add=true;
+		String message="";
+		boolean park=false;
 		if(lisence_plate.equals(Vehicle.VEHICLE_USED)){
 		add=searchVehicle(lisence_plate);
 		}
-		String message="";
-		if(add==false || lisence_plate.equals("")){
+		int modelVehicle = Integer.parseInt(model);
+				if(modelVehicle==2014){
+					for(int m=0;m<parkingLot.length;m++){
+						if(parkingLot[m][0]==null){
+							parkingLot[m][0]=new Hybrid(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							park=true;
+						}
+					}
+				}
+				else if(modelVehicle==2013){
+					for(int m=0;m<parkingLot.length;m++){
+						if(parkingLot[m][1]==null){
+							parkingLot[m][1]=new Hybrid(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							park=true;
+						}
+					}
+				}
+				else if(modelVehicle==2012){
+					for(int m=0;m<parkingLot.length;m++){
+						if(parkingLot[m][2]==null){
+							parkingLot[m][2]=new Hybrid(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							park=true;
+						}
+					}
+				}
+				else if(modelVehicle==2011){
+					for(int m=0;m<parkingLot.length;m++){
+						if(parkingLot[m][3]==null){
+							parkingLot[m][3]=new Hybrid(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							park=true;
+						}
+					}
+				}
+				else if(modelVehicle<2011){
+					for(int m=0;m<parkingLot.length;m++){
+						if(parkingLot[m][4]==null){
+							parkingLot[m][4]=new Hybrid(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							park=true;
+						}
+					}
+				}
+			else if(add==false || lisence_plate.equals("")){
 				Hybrid vehicles=new Hybrid(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
 				this.vehicles.add(vehicles);
 				find=true;
-		}
-		if(find==true){
+			}
+		if(add==false){
 			message="The vehicle has been successfully registered";
+		}
+		else if(park==true){
+			message="The vehicle has been stored in the parking lot";
 		}
 		else if(add==true){
 			message="The vehicle has not been successfully registered";
