@@ -23,11 +23,7 @@ public class Main{
 				"\n1.Register advisor"+
 				"\n2.Register client"+
 				"\n3.Register vehicles"+
-				"\n4.Show vehicle report"+
-				"\n5.Calculate the total sale price of a vehicle"+
-				"\n6.Sell ​​a vehicle"+
-				"\n7.Show vehicle catalog"+
-				"\n8.Save cars in the parking lot");
+				"\n4.Sell ​​vehicle");
 				System.out.println ("Choose the option you want");
 				option=lector.nextInt();
 				lector.nextLine();
@@ -56,12 +52,6 @@ public class Main{
 						break;
 					case 4:
 						objMain.interest();
-						break;
-					case 5:
-						
-						break;
-					case 6:
-						
 						break;
 				}
 				System.out.println("To return to the menu type 0");
@@ -462,7 +452,7 @@ public class Main{
 			}
 		message=mainCompany.interest(identificationA,identificationC,vehicle,type);
 		System.out.println(message);
-		System.out.println("Do you want to buy a vehicle?Type 1 for yes, 2 for no");
+		System.out.println("Do you want to buy a vehicle? Type 1 for yes, 2 for no");
 		buy=lector.nextInt();
 		if(buy==1){
 			System.out.println("Type the lisence plate of the vehicle you want to buy");
