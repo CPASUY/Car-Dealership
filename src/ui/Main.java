@@ -23,7 +23,8 @@ public class Main{
 				"\n1.Register advisor"+
 				"\n2.Register client"+
 				"\n3.Register vehicles"+
-				"\n4.Sell ​​vehicle");
+				"\n4.Parking information"+
+				"\n5.Sell vehicle");
 				System.out.println ("Choose the option you want");
 				option=lector.nextInt();
 				lector.nextLine();
@@ -120,7 +121,7 @@ public class Main{
 				int choice=lector.nextInt();
 				if(choice==1){
 					type=Vehicle.VEHICLE_NEW;
-					lisence_plate="";
+					lisence_plate="Not assigned";
 					mileage=0;
 				}
 				else{
@@ -188,6 +189,8 @@ public class Main{
 				int opt=lector.nextInt();
 				if(opt==1){
 					type=Vehicle.VEHICLE_NEW;
+					lisence_plate="Not assigned";
+					mileage=0;
 				}
 				else{
 					type=Vehicle.VEHICLE_USED;
@@ -269,6 +272,8 @@ public class Main{
 				int opt=lector.nextInt();
 				if(opt==1){
 					type=Vehicle.VEHICLE_NEW;
+					lisence_plate="Not assigned";
+					mileage=0;
 				}
 				else{
 					type=Vehicle.VEHICLE_USED;
@@ -348,6 +353,8 @@ public class Main{
 				int opt=lector.nextInt();
 				if(opt==1){
 					type=Vehicle.VEHICLE_NEW;
+					lisence_plate="Not assigned";
+					mileage=0;
 				}
 				else{
 					type=Vehicle.VEHICLE_USED;
@@ -456,6 +463,7 @@ public class Main{
 		buy=lector.nextInt();
 		if(buy==1){
 			System.out.println("Type the lisence plate of the vehicle you want to buy");
+			lector.nextLine();
 			String lisence_plate=lector.nextLine();
 			message=mainCompany.sellVehicle(identificationA,identificationC,lisence_plate);
 		}

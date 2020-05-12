@@ -31,4 +31,7 @@ public class Client extends Person {
 	public ArrayList<Vehicle> getInterest(){
 		return interest;
 	}
+	public void setInterest(ArrayList<Vehicle> interest) {
+		this.interest=interest;
+	}
 }

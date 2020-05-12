@@ -1,5 +1,5 @@
 package model;
-public class Advisor extends Person {
+public class Advisor extends Person{
 	//Constants
 	public static final int CLIENTS=5;
 	//Atributes

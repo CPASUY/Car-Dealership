@@ -49,6 +49,18 @@ public class Motocycle extends Vehicle{
 		}
 		super.setTotal_price(total_price);
 	}
+	@Override
+	public String toString(){
+		double total_price=super.getTotal_price();
+		double base_price=super.getBase_price();
+		double displacement=super.getCylinder();
+		String brand=super.getBrand();
+		String model=super.getModel();
+		double mileage=super.getMileage();
+		String type=super.getType();
+		String lisence_plate=super.getLisence_plate();
+		return "Total price: "+total_price+"\n"+"Base price: "+base_price+"\n"+"Brand: "+brand+"\n"+"Model: "+model+"\n"+"mileage: "+mileage+"\n"+"Displacement: "+displacement+"\n"+"Used or New: "+type+"\n"+"Lisence plate: "+lisence_plate+"\n"+"Moto type: "+moto_type+"\n"+"Tank capacity: "+cap_tank+"\n"+"Gasoline consume: "+consume_gaso;
+	}
 	public double gasolineConsume(){
 		double displacement=super.getCylinder();
 		double consume=cap_tank*(displacement/ 90);

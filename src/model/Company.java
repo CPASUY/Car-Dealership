@@ -154,7 +154,7 @@ public class Company {
     }
 	public String addVehicle(double base_price,String brand,String model,double mileage,double cylinder,String type,String lisence_plate,String moto_type,double cap_tank,double priceSoat,String yearSoat,double coverage_amount,double priceMec,String yearMec,double gas_level){
 		boolean find=false;
-		boolean add=true;
+		boolean add=false;
 		boolean park=false;
 		String message="";
 		if(lisence_plate.equals(Vehicle.VEHICLE_USED)){
@@ -211,7 +211,7 @@ public class Company {
 						}
 					}
 				}
-			else if(add==false || lisence_plate.equals("")){
+			else if(add==false || lisence_plate.equals("Not assigned")){
 			Motocycle vehicles=new Motocycle(base_price,brand,model,mileage,cylinder,type,lisence_plate,moto_type,cap_tank,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
 			this.vehicles.add(vehicles);
 			find=true;
@@ -230,7 +230,7 @@ public class Company {
 	public String addVehicle(double base_price,String brand,String model,double mileage,double cylinder,String type,String lisence_plate,String car_type,int door_number,boolean polarized,double cap_tank,String type_gasoline,double priceSoat,String yearSoat,double coverage_amount,double priceMec,String yearMec,double gas_level){
 		Scanner lector = new Scanner (System.in);
 		boolean find=false;
-		boolean add=true;
+		boolean add=false;
 		boolean park=false;
 		String message="";
 		if(lisence_plate.equals(Vehicle.VEHICLE_USED)){
@@ -287,7 +287,7 @@ public class Company {
 						}
 					}
 				}
-			else if(add==false || lisence_plate.equals("")){
+			else if(add==false || lisence_plate.equals("Not assigned")){
 					Gasoline vehicles=new Gasoline(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
 					this.vehicles.add(vehicles);
 					find=true;
@@ -305,7 +305,7 @@ public class Company {
 	}
 	public String addVehicle(double base_price,String brand,String model,double mileage,double cylinder,String type,String lisence_plate,String car_type,int door_number,boolean polarized,String charger_type,double duration,double priceSoat,String yearSoat,double coverage_amount,double priceMec,String yearMec,double gas_level){
 		boolean find=false;
-		boolean add=true;
+		boolean add=false;
 		boolean park=false;
 		String message="";
 		if(lisence_plate.equals(Vehicle.VEHICLE_USED)){
@@ -362,7 +362,7 @@ public class Company {
 						}
 					}
 				}
-			else if(add==false || lisence_plate.equals("")){
+			else if(add==false || lisence_plate.equals("Not assigned")){
 				Electrical vehicles=new Electrical(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
 				this.vehicles.add(vehicles);
 				find=true;
@@ -380,7 +380,7 @@ public class Company {
 	}
 	public String addVehicle(double base_price,String brand,String model,double mileage,double cylinder,String type,String lisence_plate,String car_type,int door_number,boolean polarized,double cap_tank,String type_gasoline,String charger_type,double duration,double priceSoat,String yearSoat,double coverage_amount,double priceMec,String yearMec,double gas_level){
 		boolean find=false;
-		boolean add=true;
+		boolean add=false;
 		String message="";
 		boolean park=false;
 		if(lisence_plate.equals(Vehicle.VEHICLE_USED)){
@@ -437,7 +437,7 @@ public class Company {
 						}
 					}
 				}
-			else if(add==false || lisence_plate.equals("")){
+			else if(add==false || lisence_plate.equals("Not assigned")){
 				Hybrid vehicles=new Hybrid(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
 				this.vehicles.add(vehicles);
 				find=true;
@@ -533,7 +533,7 @@ public class Company {
 				}
 			}
 		}
-		message="hola";
+		message=catalogue(vehicles,identificationC);
 		return message;
 	}
 	public String catalogue( ArrayList<Vehicle> interest,String identification){
@@ -544,7 +544,7 @@ public class Company {
 		}
 		else{
 			for(int s=0;s<interest.size();s++){
-				message+=interest.get(s).toString()+"\n";
+				message+=interest.get(s).toString()+"\n"+"\n";
 			}
 		}
 		return message;

@@ -28,7 +28,8 @@ public class Hybrid extends Car implements GasolineConsumable, BatteryConsumable
 		double desc=0;
 		double base=super.getBase_price();
 		String type=super.getType();
-		int year=LocalDate.now().getYear();
+		int yearDate=LocalDate.now().getYear();
+		String year= String.valueOf(yearDate);
 		String dateSoat=super.getSoat().getYear();
 		String dateMecanical=super.getSoat().getYear();
 		if(dateSoat.equals(year) && dateMecanical.equals(year) && type.equals(Vehicle.VEHICLE_NEW)){
@@ -37,7 +38,6 @@ public class Hybrid extends Car implements GasolineConsumable, BatteryConsumable
 		}
 		else if(dateSoat.equals(year) && dateMecanical.equals(year) && type.equals(Vehicle.VEHICLE_USED)){
 			total=base*0.15;
-			total_price=total+base;
 			desc=base*0.1;
 			total_price=total+base-desc;
 		}
@@ -47,9 +47,8 @@ public class Hybrid extends Car implements GasolineConsumable, BatteryConsumable
 		}
 		else if(!dateSoat.equals(year) && !dateMecanical.equals(year) && type.equals(Vehicle.VEHICLE_USED)){
 			total=base*0.15;
-			total_price=total+base+500000;
 			desc=base*0.1;
-			total_price=total+base-desc;
+			total_price=total+base-desc+500000;
 		}
 		super.setTotal_price(total_price);
 	}
@@ -107,7 +106,10 @@ public class Hybrid extends Car implements GasolineConsumable, BatteryConsumable
 	public void setConsume_Battery(double consume_battery) {
 		this.consume_battery=consume_battery;
 	}
+	@Override
 	public String toString(){
+		String polarized="";
+		double total_price=super.getTotal_price();
 		double base_price=super.getBase_price();
 		double displacement=super.getCylinder();
 		String brand=super.getBrand();
@@ -117,7 +119,13 @@ public class Hybrid extends Car implements GasolineConsumable, BatteryConsumable
 		String lisence_plate=super.getLisence_plate();
 		String car_type=super.getCar_type();
 		int door_number=super.getDoor_number();
-		boolean polarized=super.getPolarized();
-		return "Base price: "+base_price+"\n"+"Brand: "+brand+"\n"+"Model: "+model+"\n"+"mileage: "+mileage+"\n"+"Displacement: "+displacement+"\n"+"Used or New: "+type+"\n"+"Lisence plate: "+lisence_plate+"\n"+"Car type: "+car_type+"\n"+"Door number: "+door_number+"\n"+"Polarized: "+polarized+"\n"+"Tank capacity: "+cap_tank+"\n"+"Gasoline type: "+type_gasoline+"\n"+"Chaerger type: "+charger_type+"\n"+"Duration: "+duration;
+		boolean polarizedCar=super.getPolarized();
+		if(polarizedCar==true){
+			polarized="Yes";
+		}
+		else{
+			polarized="No";
+		}
+		return "Total price: "+total_price+"\n"+"Base price: "+base_price+"\n"+"Brand: "+brand+"\n"+"Model: "+model+"\n"+"mileage: "+mileage+"\n"+"Displacement: "+displacement+"\n"+"Used or New: "+type+"\n"+"Lisence plate: "+lisence_plate+"\n"+"Car type: "+car_type+"\n"+"Door number: "+door_number+"\n"+"Polarized: "+polarized+"\n"+"Tank capacity: "+cap_tank+"\n"+"Gasoline type: "+type_gasoline+"\n"+"Chaerger type: "+charger_type+"\n"+"Duration: "+duration+"\n"+"Battery consume: "+consume_battery+"\n"+"Gasoline consume: "+gaso_consume;
 	}
 }
