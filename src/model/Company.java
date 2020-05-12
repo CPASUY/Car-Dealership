@@ -164,7 +164,9 @@ public class Company {
 				if(modelVehicle==2014){
 					for(int m=0;m<parkingLot.length;m++){
 						if(parkingLot[m][0]==null){
-							parkingLot[m][0]=new Motocycle(base_price,brand,model,mileage,cylinder,type,lisence_plate,moto_type,cap_tank,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							Motocycle vehicles=new Motocycle(base_price,brand,model,mileage,cylinder,type,lisence_plate,moto_type,cap_tank,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							parkingLot[m][0]=vehicles;
+							this.vehicles.add(vehicles);
 							park=true;
 						}
 					}
@@ -172,7 +174,9 @@ public class Company {
 				else if(modelVehicle==2013){
 					for(int m=0;m<parkingLot.length;m++){
 						if(parkingLot[m][1]==null){
-							parkingLot[m][1]=new Motocycle(base_price,brand,model,mileage,cylinder,type,lisence_plate,moto_type,cap_tank,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							Motocycle vehicles=new Motocycle(base_price,brand,model,mileage,cylinder,type,lisence_plate,moto_type,cap_tank,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							parkingLot[m][1]=vehicles;
+							this.vehicles.add(vehicles);
 							park=true;
 						}
 					}
@@ -180,7 +184,9 @@ public class Company {
 				else if(modelVehicle==2012){
 					for(int m=0;m<parkingLot.length;m++){
 						if(parkingLot[m][2]==null){
-							parkingLot[m][2]=new Motocycle(base_price,brand,model,mileage,cylinder,type,lisence_plate,moto_type,cap_tank,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							Motocycle vehicles=new Motocycle(base_price,brand,model,mileage,cylinder,type,lisence_plate,moto_type,cap_tank,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							parkingLot[m][2]=vehicles;
+							this.vehicles.add(vehicles);
 							park=true;
 						}
 					}
@@ -188,7 +194,9 @@ public class Company {
 				else if(modelVehicle==2011){
 					for(int m=0;m<parkingLot.length;m++){
 						if(parkingLot[m][3]==null){
-							parkingLot[m][3]=new Motocycle(base_price,brand,model,mileage,cylinder,type,lisence_plate,moto_type,cap_tank,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							Motocycle vehicles=new Motocycle(base_price,brand,model,mileage,cylinder,type,lisence_plate,moto_type,cap_tank,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							parkingLot[m][3]=vehicles;
+							this.vehicles.add(vehicles);
 							park=true;
 						}
 					}
@@ -196,7 +204,9 @@ public class Company {
 				else if(modelVehicle<2011){
 					for(int m=0;m<parkingLot.length;m++){
 						if(parkingLot[m][4]==null){
-							parkingLot[m][4]=new Motocycle(base_price,brand,model,mileage,cylinder,type,lisence_plate,moto_type,cap_tank,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							Motocycle vehicles=new Motocycle(base_price,brand,model,mileage,cylinder,type,lisence_plate,moto_type,cap_tank,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							parkingLot[m][0]=vehicles;
+							this.vehicles.add(vehicles);
 							park=true;
 						}
 					}
@@ -230,7 +240,9 @@ public class Company {
 				if(modelVehicle==2014){
 					for(int m=0;m<parkingLot.length;m++){
 						if(parkingLot[m][0]==null){
-							parkingLot[m][0]=new Gasoline(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							Gasoline vehicles=new Gasoline(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							parkingLot[m][0]=vehicles;
+							this.vehicles.add(vehicles);
 							park=true;
 						}
 					}
@@ -238,7 +250,9 @@ public class Company {
 				else if(modelVehicle==2013){
 					for(int m=0;m<parkingLot.length;m++){
 						if(parkingLot[m][1]==null){
-							parkingLot[m][1]=new Gasoline(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							Gasoline vehicles=new Gasoline(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							parkingLot[m][1]=vehicles;
+							this.vehicles.add(vehicles);
 							park=true;
 						}
 					}
@@ -246,7 +260,9 @@ public class Company {
 				else if(modelVehicle==2012){
 					for(int m=0;m<parkingLot.length;m++){
 						if(parkingLot[m][2]==null){
-							parkingLot[m][2]=new Gasoline(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							Gasoline vehicles=new Gasoline(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							parkingLot[m][2]=vehicles;
+							this.vehicles.add(vehicles);
 							park=true;
 						}
 					}
@@ -254,7 +270,9 @@ public class Company {
 				else if(modelVehicle==2011){
 					for(int m=0;m<parkingLot.length;m++){
 						if(parkingLot[m][3]==null){
-							parkingLot[m][3]=new Gasoline(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							Gasoline vehicles=new Gasoline(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							parkingLot[m][3]=vehicles;
+							this.vehicles.add(vehicles);
 							park=true;
 						}
 					}
@@ -262,7 +280,9 @@ public class Company {
 				else if(modelVehicle<2011){
 					for(int m=0;m<parkingLot.length;m++){
 						if(parkingLot[m][4]==null){
-							parkingLot[m][4]=new Gasoline(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							Gasoline vehicles=new Gasoline(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							parkingLot[m][4]=vehicles;
+							this.vehicles.add(vehicles);
 							park=true;
 						}
 					}
@@ -295,7 +315,9 @@ public class Company {
 				if(modelVehicle==2014){
 					for(int m=0;m<parkingLot.length;m++){
 						if(parkingLot[m][0]==null){
-							parkingLot[m][0]=new Electrical(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							Electrical vehicles=new Electrical(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							parkingLot[m][0]=vehicles;
+							this.vehicles.add(vehicles);
 							park=true;
 						}
 					}
@@ -303,7 +325,9 @@ public class Company {
 				else if(modelVehicle==2013){
 					for(int m=0;m<parkingLot.length;m++){
 						if(parkingLot[m][1]==null){
-							parkingLot[m][1]=new Electrical(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							Electrical vehicles=new Electrical(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							parkingLot[m][1]=vehicles;
+							this.vehicles.add(vehicles);
 							park=true;
 						}
 					}
@@ -311,7 +335,9 @@ public class Company {
 				else if(modelVehicle==2012){
 					for(int m=0;m<parkingLot.length;m++){
 						if(parkingLot[m][2]==null){
-							parkingLot[m][2]=new Electrical(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							Electrical vehicles=new Electrical(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							parkingLot[m][2]=vehicles;
+							this.vehicles.add(vehicles);
 							park=true;
 						}
 					}
@@ -319,7 +345,9 @@ public class Company {
 				else if(modelVehicle==2011){
 					for(int m=0;m<parkingLot.length;m++){
 						if(parkingLot[m][3]==null){
-							parkingLot[m][3]=new Electrical(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							Electrical vehicles=new Electrical(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							parkingLot[m][3]=vehicles;
+							this.vehicles.add(vehicles);
 							park=true;
 						}
 					}
@@ -327,7 +355,9 @@ public class Company {
 				else if(modelVehicle<2011){
 					for(int m=0;m<parkingLot.length;m++){
 						if(parkingLot[m][4]==null){
-							parkingLot[m][4]=new Electrical(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							Electrical vehicles=new Electrical(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							parkingLot[m][4]=vehicles;
+							this.vehicles.add(vehicles);
 							park=true;
 						}
 					}
@@ -360,7 +390,9 @@ public class Company {
 				if(modelVehicle==2014){
 					for(int m=0;m<parkingLot.length;m++){
 						if(parkingLot[m][0]==null){
-							parkingLot[m][0]=new Hybrid(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							Hybrid vehicles=new Hybrid(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							parkingLot[m][0]=vehicles;
+							this.vehicles.add(vehicles);
 							park=true;
 						}
 					}
@@ -368,7 +400,9 @@ public class Company {
 				else if(modelVehicle==2013){
 					for(int m=0;m<parkingLot.length;m++){
 						if(parkingLot[m][1]==null){
-							parkingLot[m][1]=new Hybrid(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							Hybrid vehicles=new Hybrid(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							parkingLot[m][1]=vehicles;
+							this.vehicles.add(vehicles);
 							park=true;
 						}
 					}
@@ -376,7 +410,9 @@ public class Company {
 				else if(modelVehicle==2012){
 					for(int m=0;m<parkingLot.length;m++){
 						if(parkingLot[m][2]==null){
-							parkingLot[m][2]=new Hybrid(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							Hybrid vehicles=new Hybrid(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							parkingLot[m][2]=vehicles;
+							this.vehicles.add(vehicles);
 							park=true;
 						}
 					}
@@ -384,7 +420,9 @@ public class Company {
 				else if(modelVehicle==2011){
 					for(int m=0;m<parkingLot.length;m++){
 						if(parkingLot[m][3]==null){
-							parkingLot[m][3]=new Hybrid(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							Hybrid vehicles=new Hybrid(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							parkingLot[m][3]=vehicles;
+							this.vehicles.add(vehicles);
 							park=true;
 						}
 					}
@@ -392,7 +430,9 @@ public class Company {
 				else if(modelVehicle<2011){
 					for(int m=0;m<parkingLot.length;m++){
 						if(parkingLot[m][4]==null){
-							parkingLot[m][4]=new Hybrid(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							Hybrid vehicles=new Hybrid(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
+							parkingLot[m][4]=vehicles;
+							this.vehicles.add(vehicles);
 							park=true;
 						}
 					}
@@ -506,6 +546,70 @@ public class Company {
 			for(int s=0;s<interest.size();s++){
 				message+=interest.get(s).toString()+"\n";
 			}
+		}
+		return message;
+	}
+	public String parkingInformation(String year){
+		String message="";
+		int modelVehicle = Integer.parseInt(year);
+		if(modelVehicle==2014){
+			for(int s=0;s<parkingLot.length;s++){
+				message+=parkingLot[s][0].toString()+"\n";
+			}
+		}
+		else if(modelVehicle==2013){
+			for(int s=0;s<parkingLot.length;s++){
+				message+=parkingLot[s][1].toString()+"\n";
+			}
+		}
+		else if(modelVehicle==2012){
+			for(int s=0;s<parkingLot.length;s++){
+				message+=parkingLot[s][2].toString()+"\n";
+			}
+		}
+		else if(modelVehicle==2011){
+			for(int s=0;s<parkingLot.length;s++){
+				message+=parkingLot[s][3].toString()+"\n";
+			}
+		}
+		else if(modelVehicle<2011){
+			for(int s=0;s<parkingLot.length;s++){
+				message+=parkingLot[s][4].toString()+"\n";
+			}
+		}
+		return message;
+	}
+	public String sellVehicle(String identificationA,String identificationC,String lisence_plate){
+		String message="";
+		ArrayList<Vehicle> interest;
+		interest=new ArrayList<Vehicle>();
+		Advisor search=searchAdvisor(identificationA);
+		double priceVehicle=0;
+		if (search!=null){
+	    	message="Error. Advisor doesnt exists.";
+	    }
+	    else{
+	    	for (int s=0;s<SELLERS;s++){
+	   			if(sellers[s].getIdentification().equals(identificationA)){
+	   				Client [] clients=sellers[s].getClients();
+	   				for(int m=0;m<Advisor.CLIENTS;m++){
+	   					if(clients[m].getIdentification().equals(identificationC)){
+	   						interest=clients[m].getInterest();
+	   						for(int w=0;w<interest.size();w++){
+	   							if(interest.get(w).getLisence_plate().equals(lisence_plate)){
+	   								interest.get(w).setClient(clients[m]);
+	   								priceVehicle=interest.get(w).getTotal_price();
+	   								int advisorSellers=sellers[s].getSales_quantity();
+	   								sellers[s].setSales_quantity(advisorSellers+1);
+	   								sales_number++;
+	   							}
+	   						}
+	   					}						
+					}
+				}
+			}
+		message="The purchase has been successful, we are grateful for choosing us";
+		total_earnings+=priceVehicle;
 		}
 		return message;
 	}

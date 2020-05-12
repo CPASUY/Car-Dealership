@@ -430,6 +430,7 @@ public class Main{
 	public void interest(){
 		Scanner lector = new Scanner (System.in);
 		String message="";
+		int buy=0;
 		System.out.println("Write the identification of the seller in charge");
 		String identificationA=lector.nextLine();
 		System.out.println("Write the client's identification");
@@ -461,6 +462,21 @@ public class Main{
 			}
 		message=mainCompany.interest(identificationA,identificationC,vehicle,type);
 		System.out.println(message);
+		System.out.println("Do you want to buy a vehicle?Type 1 for yes, 2 for no");
+		buy=lector.nextInt();
+		if(buy==1){
+			System.out.println("Type the lisence plate of the vehicle you want to buy");
+			String lisence_plate=lector.nextLine();
+			message=mainCompany.sellVehicle(identificationA,identificationC,lisence_plate);
+		}
+
+	}
+	public void parkingInformation(){
+		Scanner lector = new Scanner(System.in);
+		String message="";
+		System.out.println("What year do you want to consult?");
+		String year=lector.nextLine();
+		message=mainCompany.parkingInformation(year);
 	}
 }	
 

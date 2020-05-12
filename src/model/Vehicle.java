@@ -12,6 +12,7 @@ public abstract class Vehicle{
 	private double cylinder;
 	private String type;
 	private String lisence_plate;
+	private Client client;
 	//Relations
 	private Soat soat;
 	private Mecanical mecanical;
@@ -25,6 +26,7 @@ public abstract class Vehicle{
 		this.cylinder=cylinder;
 		this.type=type;
 		this.lisence_plate=lisence_plate;
+		this.client=null;
 		this.soat=new Soat(priceSoat,yearSoat,coverage_amount);
 		this.mecanical=new Mecanical(priceMec,yearMec,gas_level);
 	}
@@ -64,22 +66,28 @@ public abstract class Vehicle{
 	public void setCylinder(double cylinder) {
 		this.cylinder=cylinder;
 	}
-	public String getType() {
+	public String getType(){
 		return type;
 	}
-	public void setType(String type) {
+	public void setType(String type){
 		this.type=type;
 	}
-	public String getLisence_plate() {
+	public String getLisence_plate(){
 		return lisence_plate;
 	}
 	public void setLisence_plate(String lisence_plate) {
 		this.lisence_plate=lisence_plate;
 	}
-	public Soat getSoat() {
+	public Soat getSoat(){
 		return soat;
 	}
-	public Mecanical getMecanical() {
+	public Mecanical getMecanical(){
 		return mecanical;
+	}
+	public Client getClient(){
+		return client;
+	}
+	public void setClient(Client client){
+		this.client=client;
 	}
 }
