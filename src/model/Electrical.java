@@ -31,7 +31,6 @@ public class Electrical extends Car implements BatteryConsumable {
 	     * @param level_gas - level gas of the electric car - != null
 	     * @return String with the operation message
 	     */
-	*/
 	public Electrical(double base_price, String brand, String model, double mileage, double cylinder, String type, String lisence_plate,String car_type, int door_number, boolean polarized, String charger_type, double duration,double priceSoat,String yearSoat,double coverage_amount,double priceMec,String yearMec,double gas_level) {
 		super(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
 		this.charger_type=charger_type;
@@ -47,14 +46,16 @@ public class Electrical extends Car implements BatteryConsumable {
 		double total=0;
 		double desc=0;
 		double base=super.getBase_price();
+		double priceSoat=super.getSoat().getPrice();
+		double priceMec=super.getMecanical().getPrice();
 		String type=super.getType();
 		int yearDate=LocalDate.now().getYear();
 		String year= String.valueOf(yearDate);
 		String dateSoat=super.getSoat().getYear();
 		String dateMecanical=super.getSoat().getYear();
-		if(dateSoat.equals(year) && dateMecanical.equals(year) && type.equals(Vehicle.VEHICLE_NEW)){
+		if( type.equals(Vehicle.VEHICLE_NEW)){
 			total=base*0.2;
-			total_price=total+base;
+			total_price=total+base+priceSoat+priceMec;
 		}
 		else if(dateSoat.equals(year) && dateMecanical.equals(year) && type.equals(Vehicle.VEHICLE_USED)){
 			total=base*0.2;
@@ -62,14 +63,14 @@ public class Electrical extends Car implements BatteryConsumable {
 			desc=base*0.1;
 			total_price=total+base-desc;
 		}
-		else if(!dateSoat.equals(year) && !dateMecanical.equals(year) && type.equals(Vehicle.VEHICLE_NEW)){
+		else if(type.equals(Vehicle.VEHICLE_NEW)){
 			total=base*0.2;
-			total_price=total+base+500000;
+			total_price=total+base+priceSoat+priceMec;
 		}
 		else if(!dateSoat.equals(year) && !dateMecanical.equals(year) && type.equals(Vehicle.VEHICLE_USED)){
 			total=base*0.2;
 			desc=base*0.1;
-			total_price=total+base-desc+500000;
+			total_price=total+base-desc+500000+priceMec+priceSoat;
 		}
 		super.setTotal_price(total_price);
 	}

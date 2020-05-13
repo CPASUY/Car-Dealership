@@ -44,12 +44,14 @@ public class Motocycle extends Vehicle{
 		double desc=0;
 		double base=super.getBase_price();
 		String type=super.getType();
+		double priceSoat=super.getSoat().getPrice();
+		double priceMec=super.getMecanical().getPrice();
 		int year=LocalDate.now().getYear();
 		String dateSoat=super.getSoat().getYear();
 		String dateMecanical=super.getSoat().getYear();
-		if(dateSoat.equals(year) && dateMecanical.equals(year) && type.equals(Vehicle.VEHICLE_NEW)){
+		if(type.equals(Vehicle.VEHICLE_NEW)){
 			total=base*0.04;
-			total_price=total+base;
+			total_price=total+base+priceSoat+priceMec;
 		}
 		else if(dateSoat.equals(year) && dateMecanical.equals(year) && type.equals(Vehicle.VEHICLE_USED)){
 			total=base*0.04;
@@ -57,15 +59,11 @@ public class Motocycle extends Vehicle{
 			desc=base*0.02;
 			total_price=total+base-desc;
 		}
-		else if(!dateSoat.equals(year) && !dateMecanical.equals(year) && type.equals(Vehicle.VEHICLE_NEW)){
-			total=base*0.04;
-			total_price=total+base+500000;
-		}
 		else if(!dateSoat.equals(year) && !dateMecanical.equals(year) && type.equals(Vehicle.VEHICLE_USED)){
 			total=base*0.04;
 			total_price=total+base+500000;
 			desc=base*0.02;
-			total_price=total+base-desc;
+			total_price=total+base-desc+priceSoat+priceMec;
 		}
 		super.setTotal_price(total_price);
 	}

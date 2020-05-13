@@ -55,27 +55,25 @@ public class Hybrid extends Car implements GasolineConsumable, BatteryConsumable
 		double desc=0;
 		double base=super.getBase_price();
 		String type=super.getType();
+		double priceSoat=super.getSoat().getPrice();
+		double priceMec=super.getMecanical().getPrice();
 		int yearDate=LocalDate.now().getYear();
 		String year= String.valueOf(yearDate);
 		String dateSoat=super.getSoat().getYear();
 		String dateMecanical=super.getSoat().getYear();
-		if(dateSoat.equals(year) && dateMecanical.equals(year) && type.equals(Vehicle.VEHICLE_NEW)){
+		if(type.equals(Vehicle.VEHICLE_NEW)){
 			total=base*0.15;
-			total_price=total+base;
+			total_price=total+base+priceSoat+priceMec;
 		}
 		else if(dateSoat.equals(year) && dateMecanical.equals(year) && type.equals(Vehicle.VEHICLE_USED)){
 			total=base*0.15;
 			desc=base*0.1;
 			total_price=total+base-desc;
 		}
-		else if(!dateSoat.equals(year) && !dateMecanical.equals(year) && type.equals(Vehicle.VEHICLE_NEW)){
-			total=base*0.15;
-			total_price=total+base+500000;
-		}
 		else if(!dateSoat.equals(year) && !dateMecanical.equals(year) && type.equals(Vehicle.VEHICLE_USED)){
 			total=base*0.15;
 			desc=base*0.1;
-			total_price=total+base-desc+500000;
+			total_price=total+base-desc+500000+priceSoat+priceMec;
 		}
 		super.setTotal_price(total_price);
 	}

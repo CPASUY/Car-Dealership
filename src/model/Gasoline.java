@@ -46,14 +46,20 @@ public class Gasoline extends Car implements GasolineConsumable {
 		double desc=0;
 		double base=super.getBase_price();
 		String type=super.getType();
+		double priceSoat=super.getSoat().getPrice();
+		double priceMec=super.getMecanical().getPrice();
 		int yearDate=LocalDate.now().getYear();
 		String year= String.valueOf(yearDate);
 		String dateSoat=super.getSoat().getYear();
 		String dateMecanical=super.getSoat().getYear();
-		if(dateSoat.equals(year) && dateMecanical.equals(year) && type.equals(Vehicle.VEHICLE_NEW)){
-			total_price=base;
+		if(type.equals(Vehicle.VEHICLE_NEW)){
+			total_price=base+priceSoat+priceMec;
 		}
-		if(!dateSoat.equals(year) && !dateMecanical.equals(year) && type.equals(Vehicle.VEHICLE_USED)){
+		else if(dateSoat.equals(year) && dateMecanical.equals(year) && type.equals(Vehicle.VEHICLE_USED)){
+			desc=base*0.1;
+			total_price=base-desc;
+		}
+		else if(!dateSoat.equals(year) && !dateMecanical.equals(year) && type.equals(Vehicle.VEHICLE_USED)){
 			desc=base*0.1;
 			total_price=base-desc+500000;
 		}
