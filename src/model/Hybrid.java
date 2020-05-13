@@ -104,85 +104,85 @@ public class Hybrid extends Car implements GasolineConsumable, BatteryConsumable
 		return consume;
 	}
 	/** getCap_tank
-	     * Method to provide the type of motocycle
-	     * @return string motocycle type
+	     * Method to provide the capacityof tank
+	     * @return double capacity of tank
 	     */
 	public double getCap_tank() {
 		return cap_tank;
 	}
-	/** setMoto_type
-	     * Method to changes the motocycle type
-	     * @param moto_type -!= null
+	/** setCap_tank
+	     * Method to changes the capacity of tank
+	     * @param cap_tank -!= null
 	     */
 	public void setCap_tank(double cap_tank) {
 		this.cap_tank = cap_tank;
 	}
-	/** getMoto_type
-	     * Method to provide the type of motocycle
-	     * @return string motocycle type
+	/** getTyoe_gasoline
+	     * Method to provide the type of gasoline
+	     * @return string tyoe of gasoline
 	     */
 	public String getType_gasoline() {
 		return type_gasoline;
 	}
-	/** setMoto_type
+	/** setType of gasoline
 	     * Method to changes the motocycle type
 	     * @param moto_type -!= null
 	     */
 	public void setType_gasoline(String type_gasoline) {
 		this.type_gasoline = type_gasoline;
 	}
-	/** getMoto_type
-	     * Method to provide the type of motocycle
-	     * @return string motocycle type
+	/** getGaso_consume
+	     * Method to provide the gasoline consume
+	     * @return double gasoline consume
 	     */
 	public double getGaso_consume() {
 		return gaso_consume;
 	}
-	/** setMoto_type
-	     * Method to changes the motocycle type
-	     * @param moto_type -!= null
+	/** setGaso_consume
+	     * Method to changes the gasoline consume
+	     * @param gaso_consume -!= null
 	     */
 	public void setGaso_consume(double gaso_consume) {
 		this.gaso_consume = gaso_consume;
 	}
-	/** getMoto_type
-	     * Method to provide the type of motocycle
-	     * @return string motocycle type
+	/** getCharger_type
+	     * Method to provide the type of the charger
+	     * @return string charger type
 	     */
 	public String getCharger_type() {
 		return charger_type;
 	}
-	/** setMoto_type
-	     * Method to changes the motocycle type
-	     * @param moto_type -!= null
+	/** setCharger_type
+	     * Method to changes the charger type
+	     * @param charger_type -!= null
 	     */
 	public void setCharger_type(String charger_type) {
 		this.charger_type = charger_type;
 	}
-	/** getMoto_type
-	     * Method to provide the type of motocycle
-	     * @return string motocycle type
+	/** getDuration
+	     * Method to provide the duration of the battery
+	     * @return double duration of the battery
 	     */
 	public double getDuration() {
 		return duration;
 	}
-	/** setMoto_type
-	     * Method to changes the motocycle type
-	     * @param moto_type -!= null
+	/** setDuration
+	     * Method to changes the duration of the battery
+	     * @param duration-!= null
 	     */
 	public void setDuration(double duration) {
 		this.duration = duration;
 	}
-	/** getMoto_type
-	     * Method to provide the type of motocycle
-	     * @return string motocycle type
+	/** getConsume_Battery
+	     * Method to provide the consume of the battery
+	     * @return double consume of the battery
 	     */
 	public double getConsume_Battery(){
 		return consume_battery;
 	}
-	/** setMoto_type
-	     * Method to changes the motocycle type
-	     * @param moto_type -!= null
+	/** setConsume_battery
+	     * Method to changes the consume of the batery
+	     * @param consume_battery -!= null
 	     */
 	public void setConsume_Battery(double consume_battery) {
 		this.consume_battery=consume_battery;

@@ -9,6 +9,10 @@ public class Soat extends Document {
 		this.coverage_amount=coverage_amount;
 		this.soat=soat();
 	}
+	/** soat
+	* Method used to create a code of the Soat
+	*@return String code of the soat
+	*/
 	public String soat(){
 	int[][] image_code=super.getImage_code();
     String a="";
@@ -23,9 +27,17 @@ public class Soat extends Document {
     soat=a+b;
   		return soat;
 	}
+	/** getCoverage_amount
+	     * Method to provide the coverage amount of the vehicle
+	     * @return double coverage amount
+	     */
 	public double getCoverage_amount() {
 		return coverage_amount;
 	}
+	/** setCoverage_amount
+	     * Method to changes the coverage amount of the ehicle
+	     * @param coverage_amount != null
+	     */
 	public void setCoverage_amount(double coverage_amount) {
 		this.coverage_amount=coverage_amount;
 	}
