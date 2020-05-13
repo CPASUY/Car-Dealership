@@ -16,6 +16,11 @@ public class Company {
 	private ArrayList<Client>waitingClients;
 	private Vehicle [][]parkingLot;
 	//Methods
+	/**
+	*Company builder
+	*@param name != null
+	*@param nit != null
+	*/
 	public Company(String name, String nit) {
 		this.name=name;
 		this.nit=nit;
@@ -26,33 +31,75 @@ public class Company {
 		this.waitingClients=new ArrayList<Client>();
 		this.parkingLot= new Vehicle[ROW][COLUMN];
 	}
-	public String getName() {
-	return name;
+	/** getName
+	     * Method to provide the name of the company
+	     * @return String name of the company
+	     */
+	public String getName(){
+		return name;
 	}
+	/** setName
+	     * Method to changes the name of the company
+	     * @param numName -name of the company-!= null
+	     */
 	public void setName(String name) {
 		this.name = name;
 	}
+	/** getNit
+	     * Method to provide the nit of the company
+	     * @return String nit of the company
+	     */
 	public String getNit() {
 		return nit;
 	}
-	public void setNit(String nit) {
+	/** setNit
+	     * Method to changes the nit of the company
+	     * @param nit -nit of the company-!= null
+	     */
+	public void setNit(String nit){
 		this.nit = nit;
 	}
-	public double getTotal_earnings() {
+	/** getTotal_earnings
+	     * Method to provide the toal earnings of the company
+	     * @return double total earnings
+	     */
+	public double getTotal_earnings(){
 		return total_earnings;
 	}
+	/** setTotal_earnings
+	     * Method to changes the total earnings of the company
+	     * @param total_earnings -total earnings of the company-!= null
+	     */
 	public void setTotal_earnings(double total_earnings) {
 		this.total_earnings = total_earnings;
 	}
-	public double getSales_number() {
+	/** getSales_number
+	     * Method to provide the sales number
+	     * @return double sales number
+	     */
+	public double getSales_number(){
 		return sales_number;
 	}
+	/** setSales_number
+	     * Method to changes the sales number of the company
+	     * @param sales_number -sales number of the company-!= null
+	     */
 	public void setSales_number(double sales_number) {
 		this.sales_number = sales_number;
 	}
+	/** getVehicles
+	     * Method to provide the vehicles of the company
+	     * @return Arraylist<Vehicle> vehicles of the company
+	     */
 	public ArrayList<Vehicle> getVehicles(){
 		return vehicles;
 	}
+	/** searchAdvisor
+	     *Method used to search for an advisor in the corresponding array.
+	     * post:Advisor object created in the client array.
+	     * @param identification -advisor identification-!= null
+	     * @return Advisor searchAdvisor null or not if find it.
+	     */
 	public Advisor searchAdvisor(String identification){
 	Advisor searchAdvisor=null;
 	boolean find=false;
@@ -66,6 +113,14 @@ public class Company {
 	}
 		return searchAdvisor;
     }
+     /** addAdvisor
+	     * Method used to create a new client. 
+	     * pre: Existing client arrangement. 
+	     * @param identification - advisor identification-!= null
+	     * @param name - advisor name to enter - != null
+	     * @param last_name - advisor las name to enter - != null
+	     * @return String with the operation message
+	     */
     public String addAdvisor(String name, String last_name, String identification)
 	{   String message="";
 		boolean add=false;
@@ -88,6 +143,12 @@ public class Company {
 	    }
         return message;
 	}
+	/** searchClient
+	     *Method used to search for a client in the corresponding array.
+	     * post:Client object created in the client array.
+	     * @param identification -client identification-!= null
+	     * @return Client searchClient null or not if find it.
+	     */
 	public Client searchClient(String identification){
 	Client searchClient=null;
 	boolean find=false;
@@ -109,6 +170,16 @@ public class Company {
 	}
 		return searchClient;
     }
+    /** addClient
+	     * Method used to create a new client. 
+	     * pre: Existing client arrangement. 
+	     * @param identification - client identification-!= null
+	     * @param name - client name to enter - != null
+	     * @param last_name - client las name to enter - != null
+	     * @param phone_number - client number - != null
+	     * @param mail - client mail - != null
+	     * @return String with the operation message
+	     */
     public String addClient(String name, String last_name, String identification, String phone_number, String mail)
 	{   String message="";
 		boolean add=false;
@@ -139,6 +210,11 @@ public class Company {
 	    }
         return message;
 	}
+	/** searchVehicle
+	     *Method used to search for a vehicle existing or not
+	     * @param lisence_plate -lisence plate of the vehicle-!= null
+	     * @return boolean true if find it, false if not.
+	     */
 	public boolean searchVehicle(String lisence_plate){
 	boolean searchVehicle=false;
 	boolean find=false;
@@ -152,6 +228,26 @@ public class Company {
 	}
 		return searchVehicle;
     }
+    /** addVehicle
+	     * Method used to create a new client. 
+	     * pre: Existing client arrangement. 
+	     * @param base_price - base price of the motocycle -!= null
+	     * @param brand - brand of the motocycle - != null
+	     * @param model - model of the motocycle- != null
+	     * @param mileage - mileage of the motocycle- != null
+	     * @param cylinder - cylinder of the motocycle- != null
+	     * @param type - type of the motocycle(new or used)-!= null
+	     * @param lisence_plate - lisence plate of the motocycle - != null
+	     * @param moto_type - type of the motocycle - != null
+	     * @param cap_tank - capacity of the tank - != null
+	     * @param priceSoat - Soat price of the motocycle- !=null
+	     * @param yearSoat - Soat year of the motocycle-!= null
+	     * @param coverage_amout - coverage amount of the motocycle - != null
+	     * @param priceMec - mechanical techno review price of the motocycle - != null
+	     * @param yearMec - mechanical techno review year- != null
+	     * @param level_gas - level gas of the motocycle - != null
+	     * @return String with the operation message
+	     */
 	public String addVehicle(double base_price,String brand,String model,double mileage,double cylinder,String type,String lisence_plate,String moto_type,double cap_tank,double priceSoat,String yearSoat,double coverage_amount,double priceMec,String yearMec,double gas_level){
 		boolean find=false;
 		boolean add=false;
@@ -227,6 +323,29 @@ public class Company {
 		}
 		return message;
 	}
+	/** addVehicle
+	     * Method used to create a new client. 
+	     * pre: Existing client arrangement. 
+	     * @param base_price - base price of the gasoline car -!= null
+	     * @param brand - brand of the gasoline car- != null
+	     * @param model - model of the gasoline car- != null
+	     * @param mileage - mileage of the gasoline car- != null
+	     * @param cylinder - cylinder of the gasoline car- != null
+	     * @param type - type of the gasoline car(new or used)-!= null
+	     * @param lisence_plate - lisence plate of the gasoline car - != null
+	     * @param car_type - type of the gasoline car- != null
+	     * @param door_number - door numbers of the gasoline car- != null
+	     * @param polarized - if the gasoline car if polarized- != null
+	     * @param cap_tank - capacity of tank - != null
+	     * @param type_gasoline- gasoline type of the car - !=null
+	     * @param priceSoat - Soat price of the gasoline- !=null
+	     * @param yearSoat - Soat year of the gasoline car-!= null
+	     * @param coverage_amout - coverage amount of the gasoline car - != null
+	     * @param priceMec - mechanical techno review price of the gasoline car - != null
+	     * @param yearMec - mechanical techno review year- != null
+	     * @param level_gas - level gas of the gasoline car - != null
+	     * @return String with the operation message
+	     */
 	public String addVehicle(double base_price,String brand,String model,double mileage,double cylinder,String type,String lisence_plate,String car_type,int door_number,boolean polarized,double cap_tank,String type_gasoline,double priceSoat,String yearSoat,double coverage_amount,double priceMec,String yearMec,double gas_level){
 		Scanner lector = new Scanner (System.in);
 		boolean find=false;
@@ -303,6 +422,30 @@ public class Company {
 		}
 		return message;
 	}
+	/** addVehicle
+	     * Method used to create a new client. 
+	     * pre: Existing client arrangement. 
+	     * @param base_price - base price of the electric car -!= null
+	     * @param brand - brand of the electric car- != null
+	     * @param model - model of the electric car- != null
+	     * @param mileage - mileage of the electric car- != null
+	     * @param cylinder - cylinder of the electric car- != null
+	     * @param type - type of the electric car(new or used)-!= null
+	     * @param lisence_plate - lisence plate of the electric car - != null
+	     * @param car_type - type of the electric car- != null
+	     * @param door_number - door numbers of the electric car- != null
+	     * @param polarized - if the electric car if polarized- != null
+	     * @param priceSoat - client mail - !=null
+	     * @param charger_type - charger type oh the battery- != null
+	     * @param duration- duration of the battery- !=null
+	     * @param priceSoat - Soat price of the electric car- !=null
+	     * @param yearSoat - Soat year of the electric car-!= null
+	     * @param coverage_amout - coverage amount of the electric car - != null
+	     * @param priceMec - mechanical techno review price of the electric car - != null
+	     * @param yearMec - mechanical techno review year- != null
+	     * @param level_gas - level gas of the electric car - != null
+	     * @return String with the operation message
+	     */
 	public String addVehicle(double base_price,String brand,String model,double mileage,double cylinder,String type,String lisence_plate,String car_type,int door_number,boolean polarized,String charger_type,double duration,double priceSoat,String yearSoat,double coverage_amount,double priceMec,String yearMec,double gas_level){
 		boolean find=false;
 		boolean add=false;
@@ -378,6 +521,32 @@ public class Company {
 		}
 		return message;
 	}
+	/** addVehicle
+	     * Method used to create a new client. 
+	     * pre: Existing client arrangement. 
+	     * @param base_price - base price of the hybrid car -!= null
+	     * @param brand - brand of the hybrid car- != null
+	     * @param model - model of the hybrid car- != null
+	     * @param mileage - mileage of the hybrid car- != null
+	     * @param cylinder - cylinder of the hybrid car- != null
+	     * @param type - type of the hybrid car(new or used)-!= null
+	     * @param lisence_plate - lisence plate of the hybrid car - != null
+	     * @param car_type - type of the hybrid car- != null
+	     * @param door_number - door numbers of the hybrid car- != null
+	     * @param polarized - if the hybrid car if polarized- != null
+	     * @param priceSoat - client mail - !=null
+	     * @param cap_tank - capacity of tank- != null
+	     * @param type_gasoline- gasoline type- !=null
+	     * @param charger_type - charger type of the battery- != null
+	     * @param duration- duration of the battery- !=null
+	     * @param priceSoat - Soat price of the hybrid car- !=null
+	     * @param yearSoat - Soat year of the hybrid car-!= null
+	     * @param coverage_amout - coverage amount of the hybrid car - != null
+	     * @param priceMec - mechanical techno review price of the hybrid car - != null
+	     * @param yearMec - mechanical techno review year- != null
+	     * @param level_gas - level gas of the hybrid car - != null
+	     * @return String with the operation message
+	     */
 	public String addVehicle(double base_price,String brand,String model,double mileage,double cylinder,String type,String lisence_plate,String car_type,int door_number,boolean polarized,double cap_tank,String type_gasoline,String charger_type,double duration,double priceSoat,String yearSoat,double coverage_amount,double priceMec,String yearMec,double gas_level){
 		boolean find=false;
 		boolean add=false;
@@ -453,6 +622,14 @@ public class Company {
 		}
 		return message;
 	}
+	/** interest
+	     *Method used to save each customer's interest vehicles
+	     * @param identificationA -advisor identification-!= null
+	     * @param identificationC -client identification-!= null
+	     * @param vehicle -what type of vehicle-!= null
+	     * @param type -if is used or new-!= null
+	     * @return string with the respective message.
+	     */
 	public String interest(String identificationA,String identificationC,String vehicle,String type){
 		Advisor search=searchAdvisor(identificationA);
 		String message="";
@@ -536,6 +713,12 @@ public class Company {
 		message=catalogue(vehicles,identificationC);
 		return message;
 	}
+	/** catalogue
+	     *Method used to show the information of the vehicles of interest
+	     * @param interest -vehicles of interest-!= null
+	     * @param identification -client identification-!= null
+	     * @return string of the vehicles information
+	     */
 	public String catalogue( ArrayList<Vehicle> interest,String identification){
 		String message="";
 		Client objClient=searchClient(identification);
@@ -549,6 +732,11 @@ public class Company {
 		}
 		return message;
 	}
+	/** parkingInformation
+	     *Method used to show the information of the vehicles of the parking lot
+	     * @param year -model of interest-!= null
+	     * @return string of the vehicles information
+	     */
 	public String parkingInformation(String year){
 		String message="";
 		int modelVehicle = Integer.parseInt(year);
@@ -579,6 +767,13 @@ public class Company {
 		}
 		return message;
 	}
+	/** sellVehicle
+	     *Method used to sell a vehicle.
+	     * @param identificationA -advisor identification-!= null
+	     * @param identificationC -client identification-!= null
+	     * @param lisence_plate -lisence plate of the vehicle to sell-!= null
+	     * @return string message of the operation
+	     */
 	public String sellVehicle(String identificationA,String identificationC,String lisence_plate){
 		String message="";
 		ArrayList<Vehicle> interest;

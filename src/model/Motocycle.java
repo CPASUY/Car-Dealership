@@ -11,6 +11,23 @@ public class Motocycle extends Vehicle{
 	private double cap_tank;
 	private double consume_gaso;
 	//Methods
+	/**Motocycle builder
+	* @param base_price - base price of the motocycle -!= null
+	     * @param brand - brand of the motocycle - != null
+	     * @param model - model of the motocycle- != null
+	     * @param mileage - mileage of the motocycle- != null
+	     * @param cylinder - cylinder of the motocycle- != null
+	     * @param type - type of the motocycle(new or used)-!= null
+	     * @param lisence_plate - lisence plate of the motocycle - != null
+	     * @param moto_type - type of the motocycle - != null
+	     * @param cap_tank - capacity of the tank - != null
+	     * @param priceSoat - Soat price of the motocycle- !=null
+	     * @param yearSoat - Soat year of the motocycle-!= null
+	     * @param coverage_amout - coverage amount of the motocycle - != null
+	     * @param priceMec - mechanical techno review price of the motocycle - != null
+	     * @param yearMec - mechanical techno review year- != null
+	     * @param level_gas - level gas of the motocycle - != null
+	     */
 	public Motocycle(double base_price, String brand, String model, double mileage, double cylinder,String type,String lisence_plate,String moto_type,double cap_tank,double priceSoat,String yearSoat,double coverage_amount,double priceMec,String yearMec,double gas_level){
 		super(base_price,brand,model,mileage,cylinder,type,lisence_plate,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
 		this.moto_type=moto_type;
@@ -18,6 +35,9 @@ public class Motocycle extends Vehicle{
 		this.consume_gaso=gasolineConsume();
 		total_price();
 	}
+	/** total_price
+	* Method used to find the total price of the motocycle
+	*/
 	public void total_price(){
 		double total_price=0;
 		double total=0;
@@ -49,6 +69,10 @@ public class Motocycle extends Vehicle{
 		}
 		super.setTotal_price(total_price);
 	}
+	/** toString
+	* Method used to show the information of the vehicle
+	* @return String information of the vehicle
+	*/
 	@Override
 	public String toString(){
 		double total_price=super.getTotal_price();
@@ -61,26 +85,54 @@ public class Motocycle extends Vehicle{
 		String lisence_plate=super.getLisence_plate();
 		return "Total price: "+total_price+"\n"+"Base price: "+base_price+"\n"+"Brand: "+brand+"\n"+"Model: "+model+"\n"+"mileage: "+mileage+"\n"+"Displacement: "+displacement+"\n"+"Used or New: "+type+"\n"+"Lisence plate: "+lisence_plate+"\n"+"Moto type: "+moto_type+"\n"+"Tank capacity: "+cap_tank+"\n"+"Gasoline consume: "+consume_gaso;
 	}
+	/** gasolineConsume
+	* Method used to find the gasoline consume of the motocycle
+	* @return double consume of the motocycle
+	*/
 	public double gasolineConsume(){
 		double displacement=super.getCylinder();
 		double consume=cap_tank*(displacement/ 90);
 		return consume;
 	}
+	/** getMoto_type
+	     * Method to provide the type of motocycle
+	     * @return string motocycle type
+	     */
 	public String getMoto_Type(){
 		return moto_type;
 	}
+	/** setMoto_type
+	     * Method to changes the motocycle type
+	     * @param moto_type -!= null
+	     */
 	public void setMoto_Type(String moto_type){
 		this.moto_type=moto_type;
 	}
+	/** getCap_tank
+	     * Method to provide the capacity of tank
+	     * @return double capacity of tank
+	     */
 	public double getCap_tank(){
 		return cap_tank;
 	}
-	public void setGasoline_Capacity(double cap_tank){
+	/** setGasoline_capacity
+	     * Method to changes the tank capacity 
+	     * @param cap_tank -!= null
+	     */
+	public void setCap_tank(double cap_tank){
 		this.cap_tank=cap_tank;
 	}
+	/** getConsume_Gaso
+	     * Method to provide the consume of the gasoline
+	     * @return double consume of the gasoline
+	     */
 	public double getConsume_Gaso(){
 		return consume_gaso;
 	}
+	/** setConsume_Gaso
+	     * Method to changes the consume of the gasoline
+	     * @param consume_gaso -!= null
+	     */
 	public void setConsume_Gaso(double consume_gaso){
 		this.consume_gaso=consume_gaso;
 	}

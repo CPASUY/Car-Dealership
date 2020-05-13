@@ -12,6 +12,30 @@ public class Hybrid extends Car implements GasolineConsumable, BatteryConsumable
 	private double duration;
 	private double consume_battery;
 	//Methods
+	/**Hybrid builder
+	* @param base_price - base price of the hybrid car -!= null
+	     * @param brand - brand of the hybrid car- != null
+	     * @param model - model of the hybrid car- != null
+	     * @param mileage - mileage of the hybrid car- != null
+	     * @param cylinder - cylinder of the hybrid car- != null
+	     * @param type - type of the hybrid car(new or used)-!= null
+	     * @param lisence_plate - lisence plate of the hybrid car - != null
+	     * @param car_type - type of the hybrid car- != null
+	     * @param door_number - door numbers of the hybrid car- != null
+	     * @param polarized - if the hybrid car if polarized- != null
+	     * @param priceSoat - client mail - !=null
+	     * @param cap_tank - capacity of tank- != null
+	     * @param type_gasoline- gasoline type- !=null
+	     * @param charger_type - charger type of the battery- != null
+	     * @param duration- duration of the battery- !=null
+	     * @param priceSoat - Soat price of the hybrid car- !=null
+	     * @param yearSoat - Soat year of the hybrid car-!= null
+	     * @param coverage_amout - coverage amount of the hybrid car - != null
+	     * @param priceMec - mechanical techno review price of the hybrid car - != null
+	     * @param yearMec - mechanical techno review year- != null
+	     * @param level_gas - level gas of the hybrid car - != null
+	     * @return String with the operation message
+	     */
 	public Hybrid(double base_price, String brand, String model, double mileage, double cylinder, String type, String lisence_plate,String car_type, int door_number, boolean polarized, double cap_tank, String type_gasoline,String charger_type, double duration,double priceSoat,String yearSoat,double coverage_amount,double priceMec,String yearMec,double gas_level) {
 		super(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
 		this.cap_tank=cap_tank;
@@ -22,6 +46,9 @@ public class Hybrid extends Car implements GasolineConsumable, BatteryConsumable
 		this.consume_battery=batteryConsume();
 		total_price();
 	}
+	/** total_price
+	* Method used to find the total price of the hybrid car
+	*/
 	public void total_price(){
 		double total_price=0;
 		double total=0;
@@ -52,11 +79,19 @@ public class Hybrid extends Car implements GasolineConsumable, BatteryConsumable
 		}
 		super.setTotal_price(total_price);
 	}
+	/** gasolineConsume
+	* Method used to find the gasoline consume of the hybrid car
+	* @return double consume of the hybrid car
+	*/
 	public double gasolineConsume(){
 		double displacement=super.getCylinder();
 		double consume=cap_tank*(displacement/ 110);
 		return consume;
 	}
+	/** batteryConsume
+	* Method used to find the battery consume of the hybridcar
+	* @return double consume of the hybrid car
+	*/
 	public double batteryConsume(){
 		double consume=0;
 		double displacement=super.getCylinder();
@@ -68,44 +103,94 @@ public class Hybrid extends Car implements GasolineConsumable, BatteryConsumable
 		}
 		return consume;
 	}
-	public double getCap_gasoline() {
+	/** getCap_tank
+	     * Method to provide the type of motocycle
+	     * @return string motocycle type
+	     */
+	public double getCap_tank() {
 		return cap_tank;
 	}
-	public void setCap_gasoline(double cap_tank) {
+	/** setMoto_type
+	     * Method to changes the motocycle type
+	     * @param moto_type -!= null
+	     */
+	public void setCap_tank(double cap_tank) {
 		this.cap_tank = cap_tank;
 	}
+	/** getMoto_type
+	     * Method to provide the type of motocycle
+	     * @return string motocycle type
+	     */
 	public String getType_gasoline() {
 		return type_gasoline;
 	}
+	/** setMoto_type
+	     * Method to changes the motocycle type
+	     * @param moto_type -!= null
+	     */
 	public void setType_gasoline(String type_gasoline) {
 		this.type_gasoline = type_gasoline;
 	}
-
+	/** getMoto_type
+	     * Method to provide the type of motocycle
+	     * @return string motocycle type
+	     */
 	public double getGaso_consume() {
 		return gaso_consume;
 	}
+	/** setMoto_type
+	     * Method to changes the motocycle type
+	     * @param moto_type -!= null
+	     */
 	public void setGaso_consume(double gaso_consume) {
 		this.gaso_consume = gaso_consume;
 	}
-
+	/** getMoto_type
+	     * Method to provide the type of motocycle
+	     * @return string motocycle type
+	     */
 	public String getCharger_type() {
 		return charger_type;
 	}
+	/** setMoto_type
+	     * Method to changes the motocycle type
+	     * @param moto_type -!= null
+	     */
 	public void setCharger_type(String charger_type) {
 		this.charger_type = charger_type;
 	}
+	/** getMoto_type
+	     * Method to provide the type of motocycle
+	     * @return string motocycle type
+	     */
 	public double getDuration() {
 		return duration;
 	}
+	/** setMoto_type
+	     * Method to changes the motocycle type
+	     * @param moto_type -!= null
+	     */
 	public void setDuration(double duration) {
 		this.duration = duration;
 	}
+	/** getMoto_type
+	     * Method to provide the type of motocycle
+	     * @return string motocycle type
+	     */
 	public double getConsume_Battery(){
 		return consume_battery;
 	}
+	/** setMoto_type
+	     * Method to changes the motocycle type
+	     * @param moto_type -!= null
+	     */
 	public void setConsume_Battery(double consume_battery) {
 		this.consume_battery=consume_battery;
 	}
+	/** toString
+	* Method used to show the information of the vehicle
+	* @return String information of the vehicle
+	*/
 	@Override
 	public String toString(){
 		String polarized="";

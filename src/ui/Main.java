@@ -39,7 +39,7 @@ public class Main{
 						System.out.println("What kind of vehicle you want to register. Enter 1 for motorcycles, 2 for gasoline cars, 3 for electric cars or 4 for hybrid cars");
 						int o=lector.nextInt();
 						if(o==1){
-							objMain.enterVehiclesMotocycle();
+							objMain.enterVehicleMotocycle();
 						}
 						else if(o==2){
 							objMain.enterVehicleGasoline();
@@ -75,6 +75,9 @@ public class Main{
 		String nit=lector.nextLine();
 		mainCompany=new Company(name.toUpperCase(),nit);
 		}
+	/** enterAdvisor
+	* Method used to enter the information of an advisor and register it
+	*/
 	public void enterAdvisor(){
 			Scanner lector = new Scanner (System.in);
 			System.out.println("Type the name");
@@ -86,6 +89,9 @@ public class Main{
 			String message=mainCompany.addAdvisor(name.toUpperCase(),last_name.toUpperCase(),identification);
 			System.out.println(message);
 		}
+	/** enterClient
+	* Method used to enter the information of a client and register it
+	*/
 	public void enterClient(){
 			Scanner lector = new Scanner (System.in);
 			System.out.println("Type the name");
@@ -101,7 +107,10 @@ public class Main{
 			String message=mainCompany.addClient(name.toUpperCase(),last_name.toUpperCase(),identification,phone_number,mail);
 			System.out.println(message);
 		}
-	public void enterVehiclesMotocycle(){
+	/** enterVehicleMotocycle
+	* Method used to enter the information of a motocycle and register it
+	*/
+	public void enterVehicleMotocycle(){
 			Scanner lector = new Scanner (System.in);
 			String message="";
 			String moto_type="";
@@ -167,6 +176,9 @@ public class Main{
 				message=mainCompany.addVehicle(base_price,brand,model,mileage,cylinder,type,lisence_plate,moto_type,cap_tank,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
 				System.out.println(message);
 	}
+	/** enterVehicleGasoline
+	* Method used to enter the information of a gasoline car and register it
+	*/
 	public void enterVehicleGasoline(){
 			Scanner lector = new Scanner (System.in);
 			String message="";
@@ -250,6 +262,9 @@ public class Main{
 		 		message=mainCompany.addVehicle(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
 		 		System.out.println(message);
 	}
+	/** enterVehicleElectrical
+	* Method used to enter the information of a electrical car and register it
+	*/
 	public void enterVehicleElectrical(){
 			Scanner lector = new Scanner (System.in);
 			String message="";
@@ -330,6 +345,9 @@ public class Main{
 		 		message=mainCompany.addVehicle(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
 		 		System.out.println(message);
 	}
+	/** enterVehicleHybrid
+	* Method used to enter the information of a hybrid car and register it
+	*/
 	public void enterVehicleHybrid(){
 			Scanner lector = new Scanner (System.in);
 			String message="";
@@ -424,6 +442,9 @@ public class Main{
 		 		message=mainCompany.addVehicle(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
 		 		System.out.println(message);
 	}
+	/** interest
+	* Method used for the customer to digitize in detail the inferation of the vehicles that he wants to have as vehicles of interest
+	*/
 	public void interest(){
 		Scanner lector = new Scanner (System.in);
 		String message="";
@@ -469,6 +490,9 @@ public class Main{
 		}
 
 	}
+	/** parkingInformation
+	* Method used to enter the model of the cars to see their respective information
+	*/
 	public void parkingInformation(){
 		Scanner lector = new Scanner(System.in);
 		String message="";
