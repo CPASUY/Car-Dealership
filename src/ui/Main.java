@@ -23,7 +23,7 @@ public class Main{
 				"\n1.Register advisor"+
 				"\n2.Register client"+
 				"\n3.Register vehicles"+
-				"\n4.Parking information"+
+				"\n4.Show the parking information"+
 				"\n5.Sell vehicle");
 				System.out.println ("Choose the option you want");
 				option=lector.nextInt();
@@ -52,6 +52,9 @@ public class Main{
 						}
 						break;
 					case 4:
+						objMain.parkingInformation();
+						break;
+					case 5:
 						objMain.interest();
 						break;
 				}
@@ -125,7 +128,8 @@ public class Main{
 				System.out.println("Type the model");
 				String model=lector.nextLine();
 				System.out.println("Type the cylinder");
-				double cylinder=lector.nextDouble();
+				double cylinder=lector.
+				nextDouble();
 				System.out.println("If the motorcycle is new digit 1, if used digit 2");
 				int choice=lector.nextInt();
 				if(choice==1){
@@ -448,7 +452,9 @@ public class Main{
 	public void interest(){
 		Scanner lector = new Scanner (System.in);
 		String message="";
+		String lisence_plate="";
 		int buy=0;
+		double base_price=0;
 		System.out.println("Write the identification of the seller in charge");
 		String identificationA=lector.nextLine();
 		System.out.println("Write the client's identification");
@@ -483,13 +489,20 @@ public class Main{
 		System.out.println("Do you want to buy a vehicle? Type 1 for yes, 2 for no");
 		buy=lector.nextInt();
 		if(buy==1){
-			System.out.println("Type the lisence plate of the vehicle you want to buy");
-			lector.nextLine();
-			String lisence_plate=lector.nextLine();
-			message=mainCompany.sellVehicle(identificationA,identificationC,lisence_plate);
+			if(type.equals(Vehicle.VEHICLE_USED)){
+				System.out.println("Type the lisence plate of the vehicle you want to buy");
+				lector.nextLine();
+				lisence_plate=lector.nextLine();
+			}
+			else{
+				System.out.println("Type the base price of the vehicle you want to buy");
+				lector.nextLine();
+				base_price=lector.nextDouble();
+			}
+				message=mainCompany.sellVehicle(identificationA,identificationC,lisence_plate,type,base_price);
+				System.out.println(message);
+			}
 		}
-
-	}
 	/** parkingInformation
 	* Method used to enter the model of the cars to see their respective information
 	*/
@@ -499,6 +512,7 @@ public class Main{
 		System.out.println("What year do you want to consult?");
 		String year=lector.nextLine();
 		message=mainCompany.parkingInformation(year);
+		System.out.println(message);
 	}
 }	
 

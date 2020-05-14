@@ -63,10 +63,6 @@ public class Electrical extends Car implements BatteryConsumable {
 			desc=base*0.1;
 			total_price=total+base-desc;
 		}
-		else if(type.equals(Vehicle.VEHICLE_NEW)){
-			total=base*0.2;
-			total_price=total+base+priceSoat+priceMec;
-		}
 		else if(!dateSoat.equals(year) && !dateMecanical.equals(year) && type.equals(Vehicle.VEHICLE_USED)){
 			total=base*0.2;
 			desc=base*0.1;
