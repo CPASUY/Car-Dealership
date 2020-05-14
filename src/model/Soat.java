@@ -41,5 +41,11 @@ public class Soat extends Document {
 	public void setCoverage_amount(double coverage_amount) {
 		this.coverage_amount=coverage_amount;
 	}
-
+	/** getSoatCode
+	     * Method to provide the code of the soat
+	     * @return String code soat
+	     */
+	public String getSoatCode() {
+		return soat;
+	}
 }

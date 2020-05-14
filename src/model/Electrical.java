@@ -68,6 +68,16 @@ public class Electrical extends Car implements BatteryConsumable {
 			desc=base*0.1;
 			total_price=total+base-desc+500000+priceMec+priceSoat;
 		}
+		else if(dateSoat.equals(year) && !dateMecanical.equals(year) && type.equals(Vehicle.VEHICLE_USED)){
+			total=base*0.2;
+			desc=base*0.1;
+			total_price=total+base-desc+250000+priceMec+priceSoat;
+		}
+		else if(!dateSoat.equals(year) && dateMecanical.equals(year) && type.equals(Vehicle.VEHICLE_USED)){
+			total=base*0.2;
+			desc=base*0.1;
+			total_price=total+base-desc+250000+priceMec+priceSoat;
+		}
 		super.setTotal_price(total_price);
 	}
 	/** batteryConsume
@@ -134,6 +144,11 @@ public class Electrical extends Car implements BatteryConsumable {
 	@Override
 	public String toString(){
 		String polarized="";
+		String id="";
+		Client client=super.getClient();
+		if(client!=null){
+			id=super.getClient().getIdentification();
+		}
 		double total_price=super.getTotal_price();
 		double base_price=super.getBase_price();
 		double displacement=super.getCylinder();
@@ -145,12 +160,23 @@ public class Electrical extends Car implements BatteryConsumable {
 		String car_type=super.getCar_type();
 		int door_number=super.getDoor_number();
 		boolean polarizedCar=super.getPolarized();
+		double priceSoat=super.getSoat().getPrice();
+		String yearSoat=super.getSoat().getYear();
+		double coverage_amount=super.getSoat().getCoverage_amount();
+		String soat=super.getSoat().getSoatCode();
+		double priceMec=super.getMecanical().getPrice();
+		String yearMec=super.getMecanical().getYear();
+		double level_gas=super.getMecanical().getGas_level();
+		String mecanical=super.getMecanical().getMecanicalCode();
 		if(polarizedCar==true){
 			polarized="Yes";
 		}
 		else{
 			polarized="No";
 		}
-		return "Total price: "+total_price+"\n"+"Base price: "+base_price+"\n"+"Brand: "+brand+"\n"+"Model: "+model+"\n"+"mileage: "+mileage+"\n"+"Displacement: "+displacement+"\n"+"Used or New: "+type+"\n"+"Lisence plate: "+lisence_plate+"\n"+"Car type: "+car_type+"\n"+"Door number: "+door_number+"\n"+"Polarized: "+polarized+"\n"+"Charger type: "+charger_type+"\n"+"Duration: "+duration+"\n"+"Battery consume: "+consume_battery;
+		if(client!=null){
+			return "Client: "+id+"Total price: "+total_price+"\n"+"Base price: "+base_price+"\n"+"Brand: "+brand+"\n"+"Model: "+model+"\n"+"mileage: "+mileage+"\n"+"Displacement: "+displacement+"\n"+"Used or New: "+type+"\n"+"Lisence plate: "+lisence_plate+"\n"+"Car type: "+car_type+"\n"+"Door number: "+door_number+"\n"+"Polarized: "+polarized+"\n"+"Charger type: "+charger_type+"\n"+"Duration: "+duration+"\n"+"Battery consume: "+consume_battery+"Soat code: "+soat+"\n"+"Price soat: "+priceSoat+"\n"+"Year Soat: "+yearSoat+"\n"+"Coverage amount: "+coverage_amount+"\n"+"Mecanical code: "+mecanical+"\n"+"Price Mecanical review: "+priceMec+"\n"+"Year Mecanical review: "+yearMec+"\n"+"Level gas: "+level_gas;
+		}
+		return "Total price: "+total_price+"\n"+"Base price: "+base_price+"\n"+"Brand: "+brand+"\n"+"Model: "+model+"\n"+"mileage: "+mileage+"\n"+"Displacement: "+displacement+"\n"+"Used or New: "+type+"\n"+"Lisence plate: "+lisence_plate+"\n"+"Car type: "+car_type+"\n"+"Door number: "+door_number+"\n"+"Polarized: "+polarized+"\n"+"Charger type: "+charger_type+"\n"+"Duration: "+duration+"\n"+"Battery consume: "+consume_battery+"Soat code: "+soat+"\n"+"Price soat: "+priceSoat+"\n"+"Year Soat: "+yearSoat+"\n"+"Coverage amount: "+coverage_amount+"\n"+"Mecanical code: "+mecanical+"\n"+"Price Mecanical review: "+priceMec+"\n"+"Year Mecanical review: "+yearMec+"\n"+"Level gas: "+level_gas;
 	}
 }

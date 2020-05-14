@@ -52,5 +52,12 @@ public class Mecanical extends Document {
 	public void setGas_level(double gas_level) {
 		this.gas_level = gas_level;
 	}
+	/** getMecanicalCode
+	     * Method to provide the code of the techno review
+	     * @return String code techno review
+	     */
+	public String getMecanicalCode() {
+		return mecanical;
+	}
 
 }

@@ -61,9 +61,18 @@ public class Motocycle extends Vehicle{
 		}
 		else if(!dateSoat.equals(year) && !dateMecanical.equals(year) && type.equals(Vehicle.VEHICLE_USED)){
 			total=base*0.04;
-			total_price=total+base+500000;
 			desc=base*0.02;
-			total_price=total+base-desc+priceSoat+priceMec;
+			total_price=total+base-desc+priceSoat+priceMec+500000;
+		}
+		else if(!dateSoat.equals(year) && dateMecanical.equals(year) && type.equals(Vehicle.VEHICLE_USED)){
+			total=base*0.04;
+			desc=base*0.02;
+			total_price=total+base-desc+priceSoat+priceMec+250000;
+		}
+		else if(dateSoat.equals(year) && !dateMecanical.equals(year) && type.equals(Vehicle.VEHICLE_USED)){
+			total=base*0.04;
+			desc=base*0.02;
+			total_price=total+base-desc+priceSoat+priceMec+250000;
 		}
 		super.setTotal_price(total_price);
 	}
@@ -73,6 +82,11 @@ public class Motocycle extends Vehicle{
 	*/
 	@Override
 	public String toString(){
+		String id="";
+		Client client=super.getClient();
+		if(client!=null){
+			id=super.getClient().getIdentification();
+		}
 		double total_price=super.getTotal_price();
 		double base_price=super.getBase_price();
 		double displacement=super.getCylinder();
@@ -81,7 +95,18 @@ public class Motocycle extends Vehicle{
 		double mileage=super.getMileage();
 		String type=super.getType();
 		String lisence_plate=super.getLisence_plate();
-		return "Total price: "+total_price+"\n"+"Base price: "+base_price+"\n"+"Brand: "+brand+"\n"+"Model: "+model+"\n"+"mileage: "+mileage+"\n"+"Displacement: "+displacement+"\n"+"Used or New: "+type+"\n"+"Lisence plate: "+lisence_plate+"\n"+"Moto type: "+moto_type+"\n"+"Tank capacity: "+cap_tank+"\n"+"Gasoline consume: "+consume_gaso;
+		double priceSoat=super.getSoat().getPrice();
+		String yearSoat=super.getSoat().getYear();
+		double coverage_amount=super.getSoat().getCoverage_amount();
+		String soat=super.getSoat().getSoatCode();
+		double priceMec=super.getMecanical().getPrice();
+		String yearMec=super.getMecanical().getYear();
+		double level_gas=super.getMecanical().getGas_level();
+		String mecanical=super.getMecanical().getMecanicalCode();
+		if(client!=null){
+			return "Client: "+id+"Total price: "+total_price+"\n"+"Base price: "+base_price+"\n"+"Brand: "+brand+"\n"+"Model: "+model+"\n"+"mileage: "+mileage+"\n"+"Displacement: "+displacement+"\n"+"Used or New: "+type+"\n"+"Lisence plate: "+lisence_plate+"\n"+"Moto type: "+moto_type+"\n"+"Tank capacity: "+cap_tank+"\n"+"Gasoline consume: "+consume_gaso+"Soat code: "+soat+"\n"+"Price soat: "+priceSoat+"\n"+"Year Soat: "+yearSoat+"\n"+"Coverage amount: "+coverage_amount+"\n"+"Mecanical code: "+mecanical+"\n"+"Price Mecanical review: "+priceMec+"\n"+"Year Mecanical review: "+yearMec+"\n"+"Level gas: "+level_gas;
+		}
+		return "Total price: "+total_price+"\n"+"Base price: "+base_price+"\n"+"Brand: "+brand+"\n"+"Model: "+model+"\n"+"mileage: "+mileage+"\n"+"Displacement: "+displacement+"\n"+"Used or New: "+type+"\n"+"Lisence plate: "+lisence_plate+"\n"+"Moto type: "+moto_type+"\n"+"Tank capacity: "+cap_tank+"\n"+"Gasoline consume: "+consume_gaso+"Soat code: "+soat+"\n"+"Price soat: "+priceSoat+"\n"+"Year Soat: "+yearSoat+"\n"+"Coverage amount: "+coverage_amount+"\n"+"Mecanical code: "+mecanical+"\n"+"Price Mecanical review: "+priceMec+"\n"+"Year Mecanical review: "+yearMec+"\n"+"Level gas: "+level_gas;
 	}
 	/** gasolineConsume
 	* Method used to find the gasoline consume of the motocycle
