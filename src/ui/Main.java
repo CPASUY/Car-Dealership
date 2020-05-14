@@ -473,7 +473,6 @@ public class Main{
 		if(buy==1){
 			if(type.equals(Vehicle.VEHICLE_USED)){
 				System.out.println("Type the lisence plate of the vehicle you want to buy");
-				lector.nextLine();
 				lisence_plate=lector.nextLine();
 			}
 			else{

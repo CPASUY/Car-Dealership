@@ -731,6 +731,7 @@ public class Company {
 	     */
 	public String sellVehicle(String identificationA,String identificationC,String lisence_plate,String type,double base_price){
 		String message="";
+		boolean add=false;
 		String linsence_plateNew="";
 		Random rnd = new Random();
 		ArrayList<Vehicle> interest;
@@ -749,8 +750,9 @@ public class Company {
 	   						if(clients[m]!=null){
 	   							if(clients[m].getIdentification().equals(identificationC)){
 	   								interest=clients[m].getInterest();
-	   									for(int w=0;w<interest.size();w++){
-	   										if(type.equals(Vehicle.VEHICLE_USED)){
+	   									for(int w=0;w<interest.size() && add==false;w++){
+	   										if(interest.get(w).getClient()==null){
+	   											if(type.equals(Vehicle.VEHICLE_USED)){
 	   											if(interest.get(w).getType().equals(Vehicle.VEHICLE_USED)){
 	   												if(interest.get(w).getLisence_plate().equals(lisence_plate)){
 	   													interest.get(w).setClient(clients[m]);
@@ -758,7 +760,9 @@ public class Company {
 	   													int advisorSellers=sellers[s].getSales_quantity();
 	   													sellers[s].setSales_quantity(advisorSellers+1);
 	   													sales_number++;
-	   										
+	   													add=true;
+	   													message="The purchase has been successful, we are grateful for choosing us";
+														this.total_earnings+=priceVehicle;
 	   												}
 	   											}
 	   										}
@@ -780,8 +784,15 @@ public class Company {
 	   										int advisorSellers=sellers[s].getSales_quantity();
 	   										sellers[s].setSales_quantity(advisorSellers+1);
 	   										sales_number++;
+	   										add=true;
+	   										message="The purchase has been successful, we are grateful for choosing us";
+											this.total_earnings+=priceVehicle;
 	   										}
 	   									}
+	   								}
+	   							}
+	   								else{
+	   									message="The vehicle was selled";
 	   								}
 	   							}
 	   						}						
@@ -790,8 +801,6 @@ public class Company {
 				}
 			}
 		}
-		message="The purchase has been successful, we are grateful for choosing us";
-		this.total_earnings+=priceVehicle;
 		}
 		return message;
 	}
