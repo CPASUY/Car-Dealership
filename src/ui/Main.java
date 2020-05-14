@@ -26,8 +26,7 @@ public class Main{
 				"\n4.Show the parking information"+
 				"\n5.Sell vehicle");
 				System.out.println ("Choose the option you want");
-				option=lector.nextInt();
-				lector.nextLine();
+				option=Integer.parseInt(lector.nextLine());
 				switch (option){
 					case 1:
 						objMain.enterAdvisor();
@@ -37,7 +36,7 @@ public class Main{
 						break;
 					case 3:
 						System.out.println("What kind of vehicle you want to register. Enter 1 for motorcycles, 2 for gasoline cars, 3 for electric cars or 4 for hybrid cars");
-						int o=lector.nextInt();
+						int o=Integer.parseInt(lector.nextLine());
 						if(o==1){
 							objMain.enterVehicleMotocycle();
 						}
@@ -59,7 +58,7 @@ public class Main{
 						break;
 				}
 				System.out.println("To return to the menu type 0");
-				option=lector.nextInt();
+				option=Integer.parseInt(lector.nextLine());
 			} while (option==0);
 		}
 	public static void cls(){
@@ -121,17 +120,15 @@ public class Main{
 			String lisence_plate;
 			double mileage;
 				System.out.println("Type the base price");
-				double base_price=lector.nextDouble();
+				double base_price=Double.parseDouble(lector.nextLine());
 				System.out.println("Type the brand");
 				String brand=lector.nextLine();
-				lector.nextLine();
 				System.out.println("Type the model");
 				String model=lector.nextLine();
 				System.out.println("Type the cylinder");
-				double cylinder=lector.
-				nextDouble();
+				double cylinder=Double.parseDouble(lector.nextLine());
 				System.out.println("If the motorcycle is new digit 1, if used digit 2");
-				int choice=lector.nextInt();
+				int choice=Integer.parseInt(lector.nextLine());
 				if(choice==1){
 					type=Vehicle.VEHICLE_NEW;
 					lisence_plate="Not assigned";
@@ -141,12 +138,11 @@ public class Main{
 					type=Vehicle.VEHICLE_USED;
 					System.out.println("Type the lisence plate");
 					lisence_plate=lector.nextLine();
-					lector.nextLine();
 					System.out.println("Type the mileage");
-					mileage=lector.nextDouble();
+					mileage=Double.parseDouble(lector.nextLine());
 				}
 				System.out.println("What is the type of motorcycle.Type 1 standar,2 for a sport,3 for scooter and 4 for cross");
-				int choi=lector.nextInt();
+				int choi=Integer.parseInt(lector.nextLine());
 				if(choi==1){
 					moto_type=Motocycle.MOTO_STANDAR;
 				}
@@ -160,23 +156,21 @@ public class Main{
 					moto_type=Motocycle.MOTO_CROSS;
 				}
 				System.out.println("Type the gasoline capacity");
-				double cap_tank=lector.nextDouble();
+				double cap_tank=Double.parseDouble(lector.nextLine());
 				System.out.println("--Additional information about the soat--");
 				System.out.println("Type the price of the document");
-				double priceSoat=lector.nextDouble();
+				double priceSoat=Double.parseDouble(lector.nextLine());
 				System.out.println("Type the year of the document");
 				String yearSoat=lector.nextLine();
-				lector.nextLine();
 				System.out.println("What is the amount of accident coverage of the vehicle to register");
-				double coverage_amount=lector.nextDouble();
+				double coverage_amount=Double.parseDouble(lector.nextLine());
 				System.out.println("--Additional information about the mechanical technical revision--");
 				System.out.println("Type the price of the document");
-				double priceMec=lector.nextDouble();
+				double priceMec=Double.parseDouble(lector.nextLine());
 				System.out.println("Type the year of the document");
 				String yearMec=lector.nextLine();
-				lector.nextLine();
 				System.out.println("What are the gas levels");
-				double gas_level=lector.nextDouble();
+				double gas_level=Double.parseDouble(lector.nextLine());
 				message=mainCompany.addVehicle(base_price,brand,model,mileage,cylinder,type,lisence_plate,moto_type,cap_tank,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
 				System.out.println(message);
 	}
@@ -193,16 +187,15 @@ public class Main{
 			boolean polarized;
 			double mileage=0;;
 				System.out.println("Type the base price");
-				double base_price=lector.nextDouble();
+				double base_price=Double.parseDouble(lector.nextLine());
 				System.out.println("Type the brand");
 				String brand=lector.nextLine();
-				lector.nextLine();
 				System.out.println("Type the model");
 				String model=lector.nextLine();
 				System.out.println("Type the cylinder");
-				double cylinder=lector.nextDouble();
+				double cylinder=Double.parseDouble(lector.nextLine());
 				System.out.println("If the car is new digit 1, if used digit 2");
-				int opt=lector.nextInt();
+				int opt=Integer.parseInt(lector.nextLine());
 				if(opt==1){
 					type=Vehicle.VEHICLE_NEW;
 					lisence_plate="Not assigned";
@@ -212,12 +205,11 @@ public class Main{
 					type=Vehicle.VEHICLE_USED;
 					System.out.println("Type the lisence plate");
 					lisence_plate=lector.nextLine();
-					lector.nextLine();
 					System.out.println("Type the mileage");
-					mileage=lector.nextDouble();
+					mileage=Double.parseDouble(lector.nextLine());
 				}
 				System.out.println("What is the type of car.Type 1 sedan or 2 for a van");
-				int op=lector.nextInt();
+				int op=Integer.parseInt(lector.nextLine());
 				if(op==1){
 					car_type=Car.CAR_SEDAN;
 				}
@@ -225,9 +217,9 @@ public class Main{
 					car_type=Car.CAR_VAN;
 				}
 				System.out.println("Type the number of doors");
-				int door_number=lector.nextInt();
+				int door_number=Integer.parseInt(lector.nextLine());
 				System.out.println("Type 1 if the car is polarized,2 if it is not");
-				int opti=lector.nextInt();
+				int opti=Integer.parseInt(lector.nextLine());
 				if(opti==1){
 					polarized=true;
 				}
@@ -235,9 +227,9 @@ public class Main{
 					polarized=false;
 				}
 				System.out.println("Type the tank capacity");
-				double cap_tank=lector.nextDouble();
+				double cap_tank=Double.parseDouble(lector.nextLine());
 				System.out.println("What is the type of gasoline.Type 1 extra, 2 for corrient or 3 for diesel");
-				int gaso=lector.nextInt();
+				int gaso=Integer.parseInt(lector.nextLine());
 				if(gaso==1){
 					type_gasoline=Gasoline.EXTRA;
 				}
@@ -249,20 +241,18 @@ public class Main{
 				}
 				System.out.println("--Additional information about the soat--");
 				System.out.println("Type the price of the document");
-				double priceSoat=lector.nextDouble();
+				double priceSoat=Double.parseDouble(lector.nextLine());
 				System.out.println("Type the year of the document");
 				String yearSoat=lector.nextLine();
-				lector.nextLine();
 				System.out.println("What is the amount of accident coverage of the vehicle to register");
-				double coverage_amount=lector.nextDouble();
+				double coverage_amount=Double.parseDouble(lector.nextLine());
 				System.out.println("--Additional information about the mechanical technical revision--");
 				System.out.println("Type the price of the document");
-				double priceMec=lector.nextDouble();
+				double priceMec=Double.parseDouble(lector.nextLine());
 				System.out.println("Type the year of the document");
 				String yearMec=lector.nextLine();
-				lector.nextLine();
 				System.out.println("What are the gas levels");
-				double gas_level=lector.nextDouble();
+				double gas_level=Double.parseDouble(lector.nextLine());
 		 		message=mainCompany.addVehicle(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
 		 		System.out.println(message);
 	}
@@ -279,16 +269,15 @@ public class Main{
 			boolean polarized;
 			double mileage=0;
 				System.out.println("Type the base price");
-				double base_price=lector.nextDouble();
+				double base_price=Double.parseDouble(lector.nextLine());
 				System.out.println("Type the brand");
 				String brand=lector.nextLine();
-				lector.nextLine();
 				System.out.println("Type the model");
 				String model=lector.nextLine();
 				System.out.println("Type the cylinder");
-				double cylinder=lector.nextDouble();
+				double cylinder=Double.parseDouble(lector.nextLine());
 				System.out.println("If the car is new digit 1, if used digit 2");
-				int opt=lector.nextInt();
+				int opt=Integer.parseInt(lector.nextLine());
 				if(opt==1){
 					type=Vehicle.VEHICLE_NEW;
 					lisence_plate="Not assigned";
@@ -298,12 +287,11 @@ public class Main{
 					type=Vehicle.VEHICLE_USED;
 					System.out.println("Type the lisence plate");
 					lisence_plate=lector.nextLine();
-					lector.nextLine();
 					System.out.println("Type the mileage");
-					mileage=lector.nextDouble();
+					mileage=Double.parseDouble(lector.nextLine());
 				}
 				System.out.println("What is the type of car.Type 1 sedan or 2 for a van");
-				int op=lector.nextInt();
+				int op=Integer.parseInt(lector.nextLine());
 				if(op==1){
 					car_type=Car.CAR_SEDAN;
 				}
@@ -311,9 +299,9 @@ public class Main{
 					car_type=Car.CAR_VAN;
 				}
 				System.out.println("Type the number of doors");
-				int door_number=lector.nextInt();
+				int door_number=Integer.parseInt(lector.nextLine());
 				System.out.println("Type 1 if the car is polarized,2 if it is not");
-				int opti=lector.nextInt();
+				int opti=Integer.parseInt(lector.nextLine());
 				if(opti==1){
 					polarized=true;
 				}
@@ -321,7 +309,7 @@ public class Main{
 					polarized=false;
 				}
 				System.out.println("What is the type of charger.Type 1 normal, or 2 for quick");
-				int charg=lector.nextInt();
+				int charg=Integer.parseInt(lector.nextLine());
 				if(charg==1){
 					charger_type=Electrical.NORMAL;
 				}
@@ -329,23 +317,21 @@ public class Main{
 					charger_type=Electrical.QUICK;
 				}
 				System.out.println("Type the duration of the charger");
-				double duration=lector.nextDouble();
+				double duration=Double.parseDouble(lector.nextLine());
 				System.out.println("--Additional information about the soat--");
 				System.out.println("Type the price of the document");
-				double priceSoat=lector.nextDouble();
+				double priceSoat=Double.parseDouble(lector.nextLine());
 				System.out.println("Type the year of the document");
 				String yearSoat=lector.nextLine();
-				lector.nextLine();
 				System.out.println("What is the amount of accident coverage of the vehicle to register");
-				double coverage_amount=lector.nextDouble();
+				double coverage_amount=Double.parseDouble(lector.nextLine());
 				System.out.println("--Additional information about the mechanical technical revision--");
 				System.out.println("Type the price of the document");
-				double priceMec=lector.nextDouble();
+				double priceMec=Double.parseDouble(lector.nextLine());
 				System.out.println("Type the year of the document");
 				String yearMec=lector.nextLine();
-				lector.nextLine();
 				System.out.println("What are the gas levels");
-				double gas_level=lector.nextDouble();
+				double gas_level=Double.parseDouble(lector.nextLine());
 		 		message=mainCompany.addVehicle(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
 		 		System.out.println(message);
 	}
@@ -363,16 +349,15 @@ public class Main{
 			boolean polarized;
 			double mileage=0;
 				System.out.println("Type the base price");
-				double base_price=lector.nextDouble();
+				double base_price=Double.parseDouble(lector.nextLine());
 				System.out.println("Type the brand");
 				String brand=lector.nextLine();
-				lector.nextLine();
 				System.out.println("Type the model");
 				String model=lector.nextLine();
 				System.out.println("Type the cylinder");
-				double cylinder=lector.nextDouble();
+				double cylinder=Double.parseDouble(lector.nextLine());
 				System.out.println("If the car is new digit 1, if used digit 2");
-				int opt=lector.nextInt();
+				int opt=Integer.parseInt(lector.nextLine());
 				if(opt==1){
 					type=Vehicle.VEHICLE_NEW;
 					lisence_plate="Not assigned";
@@ -382,12 +367,11 @@ public class Main{
 					type=Vehicle.VEHICLE_USED;
 					System.out.println("Type the lisence plate");
 					lisence_plate=lector.nextLine();
-					lector.nextLine();
 					System.out.println("Type the mileage");
-					mileage=lector.nextDouble();
+					mileage=Double.parseDouble(lector.nextLine());
 				}
 				System.out.println("What is the type of car.Type 1 sedan or 2 for a van");
-				int op=lector.nextInt();
+				int op=Integer.parseInt(lector.nextLine());
 				if(op==1){
 					car_type=Car.CAR_SEDAN;
 				}
@@ -395,9 +379,9 @@ public class Main{
 					car_type=Car.CAR_VAN;
 				}
 				System.out.println("Type the number of doors");
-				int door_number=lector.nextInt();
+				int door_number=Integer.parseInt(lector.nextLine());
 				System.out.println("Type 1 if the car is polarized,2 if it is not");
-				int opti=lector.nextInt();
+				int opti=Integer.parseInt(lector.nextLine());
 				if(opti==1){
 					polarized=true;
 				}
@@ -405,9 +389,9 @@ public class Main{
 					polarized=false;
 				}
 				System.out.println("Type the tank capacity");
-				double cap_tank=lector.nextDouble();
+				double cap_tank=Double.parseDouble(lector.nextLine());
 				System.out.println("What is the type of gasoline.Type 1 extra, 2 for corrient or 3 for diesel");
-				int gaso=lector.nextInt();
+				int gaso=Integer.parseInt(lector.nextLine());
 				if(gaso==1){
 					type_gasoline=Gasoline.EXTRA;
 				}
@@ -418,7 +402,7 @@ public class Main{
 					type_gasoline=Gasoline.DIESEL;
 				}
 				System.out.println("What is the type of charger.Type 1 normal, or 2 for quick");
-				int charg=lector.nextInt();
+				int charg=Integer.parseInt(lector.nextLine());
 				if(charg==1){
 					charger_type=Electrical.NORMAL;
 				}
@@ -426,23 +410,21 @@ public class Main{
 					charger_type=Electrical.QUICK;
 				}
 				System.out.println("Type the duration of the battery");
-				double duration=lector.nextDouble();
+				double duration=Double.parseDouble(lector.nextLine());
 				System.out.println("--Additional information about the soat--");
 				System.out.println("Type the price of the document");
-				double priceSoat=lector.nextDouble();
+				double priceSoat=Double.parseDouble(lector.nextLine());
 				System.out.println("Type the year of the document");
 				String yearSoat=lector.nextLine();
-				lector.nextLine();
 				System.out.println("What is the amount of accident coverage of the vehicle to register");
-				double coverage_amount=lector.nextDouble();
+				double coverage_amount=Double.parseDouble(lector.nextLine());
 				System.out.println("--Additional information about the mechanical technical revision--");
 				System.out.println("Type the price of the document");
-				double priceMec=lector.nextDouble();
+				double priceMec=Double.parseDouble(lector.nextLine());
 				System.out.println("Type the year of the document");
 				String yearMec=lector.nextLine();
-				lector.nextLine();
 				System.out.println("What are the gas levels");
-				double gas_level=lector.nextDouble();
+				double gas_level=Double.parseDouble(lector.nextLine());
 		 		message=mainCompany.addVehicle(base_price,brand,model,mileage,cylinder,type,lisence_plate,car_type,door_number,polarized,cap_tank,type_gasoline,charger_type,duration,priceSoat,yearSoat,coverage_amount,priceMec,yearMec,gas_level);
 		 		System.out.println(message);
 	}
@@ -461,7 +443,7 @@ public class Main{
 		String identificationC=lector.nextLine();
 		System.out.println("What type of vehicle are you interested in");
 		System.out.println("Enter 1 for motorcycles, 2 for gasoline cars, 3 for electric cars or 4 for hybrid cars");
-		int opt=lector.nextInt();
+		int opt=Integer.parseInt(lector.nextLine());
 		String vehicle="";
 		String type="";
 		if(opt==1){
@@ -477,7 +459,7 @@ public class Main{
 			vehicle=HYB;
 		}
 		System.out.println("Want new or used vehicles.Enter 1 for the first one, 2 for the other one");
-			int op=lector.nextInt();
+			int op=Integer.parseInt(lector.nextLine());
 			if(op==1){
 				type=Vehicle.VEHICLE_NEW;
 			}
@@ -487,7 +469,7 @@ public class Main{
 		message=mainCompany.interest(identificationA,identificationC,vehicle,type);
 		System.out.println(message);
 		System.out.println("Do you want to buy a vehicle? Type 1 for yes, 2 for no");
-		buy=lector.nextInt();
+		buy=Integer.parseInt(lector.nextLine());
 		if(buy==1){
 			if(type.equals(Vehicle.VEHICLE_USED)){
 				System.out.println("Type the lisence plate of the vehicle you want to buy");
@@ -496,8 +478,7 @@ public class Main{
 			}
 			else{
 				System.out.println("Type the base price of the vehicle you want to buy");
-				lector.nextLine();
-				base_price=lector.nextDouble();
+				base_price=Double.parseDouble(lector.nextLine());
 			}
 				message=mainCompany.sellVehicle(identificationA,identificationC,lisence_plate,type,base_price);
 				System.out.println(message);
